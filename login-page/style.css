@@ -1,0 +1,33 @@
+:root {
+  /* Dark Colors */
+  --nord0: #2f3541;
+  --nord1: #3c4353;
+  --nord2: #444d5f;
+  --nord3: #4d576a;
+
+  /* Light Colors */
+  --nord4: #d8dee9;
+  --nord5: #e5e9f0;
+  --nord6: #eceff4;
+
+  /* Frost Colors for highlighting */
+  --nord7: #8fbcbb;
+  --nord8: #87bfcf;
+  --nord9: #81a1c1;
+  --nord10: #5d81ac;
+
+  /* Aurora Colors */
+  --nord11: #bf616a;
+  --nord12: #d08770;
+  --nord13: #ebcb8b;
+  --nord14: #a3be8c;
+  --nord15: #b48ead;
+
+  --Mobile-width: 375px;
+  --Desktop-width: 1440px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}

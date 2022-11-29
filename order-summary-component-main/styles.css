@@ -21,10 +21,14 @@ body {
     background:url(./images/pattern-background-mobile.svg), var(--Pale-blue);
     background-repeat: no-repeat;
     background-size:cover;
-    width: var(--Mobile-width);
+    width: 100%;
     font-family:"Red Hat Display", sans-serif;
     font-size: 16px;
     color: var(--Desaturated-blue);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    
 }
 
 p {
@@ -34,6 +38,7 @@ p {
 
 .card {
     background-color: white;
+    width: 24rem;
     border-radius: 20px;
     overflow: hidden;
 }

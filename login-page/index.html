@@ -9,7 +9,7 @@
   </head>
   <body>
     <div class="container">
-      <div class="left-login">
+      <section class="left-login">
         <div class="header">
           <h1>Welcome to Our Application</h1>
           <p>Please login to use the platform</p>
@@ -24,29 +24,48 @@
             <input type="password" id="password" />
           </div>
           <div class="form-item">
-            <input type="checkbox" name="rememberMe" id="rememberMeCheckbox" checked/>
-            <label for="rememberMeCheckbox" id="checkboxLabel" class="checkboxLabel"
-              >Remember Me</label
-            >
+            <div class="checkbox">
+              <input
+                type="checkbox"
+                name="rememberMe"
+                id="rememberMeCheckbox"
+                checked
+              />
+              <label
+                for="rememberMeCheckbox"
+                id="checkboxLabel"
+                class="checkboxLabel"
+                >Remember Me</label>
+            </div>
           </div>
           <button type="submit">Sign In</button>
           <div class="login-from__footer">
             <a href="#">
-              <img width="30px" src="https://img.icons8.com/fluency/48/null/facebook-new.png" alt="Facebook Login" />
+              <img
+                width="30px"
+                src="https://img.icons8.com/fluency/48/null/facebook-new.png"
+                alt="Facebook Login"
+              />
+              <p>Facebook Login</p>
             </a>
             <a href="#">
-              <img width="30px" src="https://img.icons8.com/color/48/null/google-logo.png" alt="Google Login" />
+              <img
+              width="30px"
+              src="https://img.icons8.com/color/48/null/google-logo.png"
+              alt="Google Login"
+              />
+              <p>Google Login</p>
             </a>
           </div>
         </form>
-      </div>
-      <div class="right-login">
+      </section>
+      <section class="right-login">
         <img
           src="https://source.unsplash.com/random"
           alt="Unsplash Images"
           class="rotate-vert-center"
         />
-      </div>
+      </section>
     </div>
   </body>
 </html>

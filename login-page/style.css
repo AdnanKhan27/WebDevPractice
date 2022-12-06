@@ -143,17 +143,22 @@ input[type="checkbox"] {
 
 .login-from__footer a {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   gap: 1rem;
   border: 3px #5d81ac solid;
   border-radius: 5rem;
   padding: 0.5rem;
-  padding-right: 0.7rem;
+  /* padding-right: 0.7rem; */
   text-decoration: none;
   color: var(--nord5);
   font-family: "Poppins", sans-serif;
   
+}
+
+.login-from__footer a:hover {
+  background-color: var(--nord3);
+  /* opacity: 0.8; */
 }
 
 .right-login {
@@ -268,5 +273,13 @@ input[type="checkbox"] {
 
   .right-login {
     display: none;
+  }
+
+  .login-from__footer p {
+    display: none;
+  }
+
+  .login-from__footer a {
+    padding: 1rem;
   }
 }

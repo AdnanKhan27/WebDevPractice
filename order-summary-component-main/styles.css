@@ -2,9 +2,9 @@
 
 :root {
     --Pale-blue: hsl(225, 100%, 94%);
-    --Bright-blue: hsl(245, 75%, 52%);
-    --Very-pale-blue: hsl(225, 100%, 98%);
-    --Desaturated-blue: hsl(224, 23%, 55%);
+    --Bright-blue: #3829e0;
+    --Very-pale-blue: #f5f7ff;
+    --Desaturated-blue: #7280a7;
     --Dark-blue: hsl(223, 47%, 23%);
 
     --Mobile-width: 375px;
@@ -15,6 +15,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family:"Red Hat Display", sans-serif;
 }
 
 body {
@@ -22,12 +23,15 @@ body {
     background-repeat: no-repeat;
     background-size:cover;
     width: 100%;
-    font-family:"Red Hat Display", sans-serif;
     font-size: 16px;
     color: var(--Desaturated-blue);
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    /* padding-top: 10%;
+    padding-bottom: 10%; */
     
 }
 
@@ -44,11 +48,18 @@ p {
 }
 
 .hero-image {
-
+    object-fit: cover;
+    width: 100%;
+    height: 30%;
 }
 
-.container {
+.container {   
+    display: flex;
+    flex-direction: column;
+    /* justify-content: ; */
+    align-items: stretch;
     padding: 30px;
+    padding-top: 0px;
 }
 
 .container > * {
@@ -72,21 +83,48 @@ p {
     padding: 20px;
 }
 
+.plan-container a{
+    color: var(--Bright-blue);
+}
+
+.plan-container a:hover {
+    opacity: 0.7;
+}
+
 .plan-description {
     display: flex;
     flex-direction: column;
     margin-right: 15%;    
 }
+.plan-description strong {
+    color: var(--Dark-blue);
+}
 
 button {
-    width: 80%;
-    
+    font-weight: 700;
+    font-size: large;
+    padding: 1rem;
+    border-radius: 10px;
+    border: none;
 }
 
 .pay-button {
-    
+    background-color: var(--Bright-blue);
+    color: white;
+    box-shadow: 0px 20px 8px 0px var(--Pale-blue);
+    margin-bottom: -0.3rem;
+}
+.pay-button:hover {
+    /* background-color: hsl(241, 98%, 76%); */
+    opacity: 0.7;
 }
 
 .order-button {
-
+    background: none;
+    color: var(--Desaturated-blue);
 }
+
+.order-button:hover {
+    color: var(--Dark-blue);
+}
+

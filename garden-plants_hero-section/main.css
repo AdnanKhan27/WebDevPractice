@@ -1,0 +1,91 @@
+:root {
+  margin: 0 0;
+  padding: 0 0;
+}
+
+body {
+  background-image: url("https://images.unsplash.com/photo-1512576775730-059ede6767ec?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1192&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0 1em;
+  color: white;
+}
+
+.logo {
+  width: 5rem;
+  border-radius: 25rem;
+}
+
+.navbar {
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navlink {
+  display: flex;
+  gap: 2;
+  justify-content: space-between;
+  width: 40%;
+}
+
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.hero {
+  background-color: hsla(105, 32%, 29%, 0.584);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.hero h1 {
+  font-size: xxx-large;
+}
+
+.hero p {
+}
+
+.hero button {
+}
+
+.services_section {
+  background-color: #1f3119;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 20%;
+  flex-wrap: wrap;
+  padding: 4rem 20%;
+  row-gap: 4rem;
+}
+
+.service {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
+}
+
+.service span {
+  height: 100%;
+  font-size: xxx-large;
+  color: #94b588;
+}
+
+.service strong {
+}
+
+.service p {
+  color: silver;
+}
+
+/* Utility classes */
+.flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

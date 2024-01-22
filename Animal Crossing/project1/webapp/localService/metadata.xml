@@ -1,0 +1,1196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri=".3/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".3/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".3/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".3/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".3/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".3/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".3/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".3/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".3/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ATP_RELEASE_FOR_DELIVERY" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="RFDYRequirementRefreshType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="RFDYRequestUUID"/>
+                </Key>
+                <Property Name="RFDYRequestUUID" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="to_RFDYLockedRequirement" Relationship="ATP_RELEASE_FOR_DELIVERY.to_RFDYLockedRequirementFromRefresh" FromRole="FromRole_to_RFDYLockedRequirementFromRefresh" ToRole="ToRole_to_RFDYLockedRequirementFromRefresh"/>
+                <NavigationProperty Name="to_RFDYModifiedRequirement" Relationship="ATP_RELEASE_FOR_DELIVERY.to_RFDYModifiedRequirementFromRefresh" FromRole="FromRole_to_RFDYModifiedRequirementFromRefresh" ToRole="ToRole_to_RFDYModifiedRequirementFromRefresh"/>
+            </EntityType>
+            <EntityType Name="RFDYWorkloadPreviewType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ResponsibilityUUID"/>
+                    <PropertyRef Name="SupplyingPlant"/>
+                    <PropertyRef Name="Material"/>
+                </Key>
+                <Property Name="ResponsibilityUUID" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="Responsibility UUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SupplyingPlant" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Plant" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Material" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ProcessingStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Material Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="RFDYLockedRequirementType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="RFDYRequirementUUID"/>
+                </Key>
+                <Property Name="RFDYRequirementUUID" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="NodeID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RFDYRequiestUUID" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="NodeID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="RFDYModifiedRequirementType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="RFDYRequirementUUID"/>
+                </Key>
+                <Property Name="RFDYRequirementUUID" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="NodeID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Sales Document" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RFDYRequiestUUID" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="NodeID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SalesOrderItem" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Item" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RequestedQuantityInBaseUnit" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="3" sap:unicode="false" sap:label="Requested Qty" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SalesOrderScheduleLine" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Schedule Line" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BaseUnit" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Unit" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="SoldToParty" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Sold-To Party" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ReqdProdAvailabilityUTCDateTme" Type="Edm.DateTime" Nullable="false" Precision="0" sap:unicode="false" sap:label="Req. Mat. Avail. Dte" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SalesOrderType" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Sales Doc. Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RequestedLoadingUTCDateTime" Type="Edm.DateTime" Nullable="false" Precision="0" sap:unicode="false" sap:label="Req. Loading Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SalesOrderDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Document Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DeliveryPriority" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="Delivery Prior." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RequestedGoodsIssueUTCDateTime" Type="Edm.DateTime" Nullable="false" Precision="0" sap:unicode="false" sap:label="Req. Goods Issue" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RequestedDeliveryUTCDateTime" Type="Edm.DateTime" Nullable="false" Precision="0" sap:unicode="false" sap:label="Req. Delivery Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IsProtected" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Is Protected" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IsPostponed" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Is Postponed" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="RFDYRequirementUpdateResultType" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="RFDYRequestUUID"/>
+                </Key>
+                <Property Name="RFDYRequestUUID" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="to_RFDYLockedRequirement" Relationship="ATP_RELEASE_FOR_DELIVERY.to_RFDYLockedRequirement" FromRole="FromRole_to_RFDYLockedRequirement" ToRole="ToRole_to_RFDYLockedRequirement"/>
+                <NavigationProperty Name="to_RFDYModifiedRequirement" Relationship="ATP_RELEASE_FOR_DELIVERY.to_RFDYModifiedRequirement" FromRole="FromRole_to_RFDYModifiedRequirement" ToRole="ToRole_to_RFDYModifiedRequirement"/>
+            </EntityType>
+            <EntityType Name="C_RFDYChangedRequirementType" sap:label="Release For Delivery Changed Requirement" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="RFDYChangeUUID"/>
+                </Key>
+                <Property Name="RFDYChangeUUID" Type="Edm.Guid" Nullable="false" sap:label="UUID" sap:quickinfo="UUID in X form (binary)" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="RFDYRequirementUUID" Type="Edm.Guid" sap:label="Requirement ID" sap:quickinfo="ID of a Requirement in Release for Delivery" sap:creatable="false" sap:updatable="false" sap:value-list="standard"/>
+                <Property Name="RFDYWorklistUUID" Type="Edm.Guid" sap:label="Worklist ID" sap:quickinfo="ID of a Worklist in Release for Delivery" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ATPRequirementChangedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="User ID"/>
+                <Property Name="PrevReqdQuantityInBaseUnit" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="BaseUnit" sap:label="Requested Quantity"/>
+                <Property Name="PrevReqdProdAvailyUTCDateTme" Type="Edm.DateTimeOffset" Precision="0" sap:label="Req. Mat. Avail. Dte" sap:quickinfo="Requested Material Availability Timestamp in UTC"/>
+                <Property Name="NewRequestedQuantityInBaseUnit" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="BaseUnit" sap:label="Requested Quantity"/>
+                <Property Name="NewReqdProdAvailyUTCDateTme" Type="Edm.DateTimeOffset" Precision="0" sap:label="Req. Mat. Avail. Dte" sap:quickinfo="Requested Material Availability Timestamp in UTC"/>
+                <Property Name="BaseUnit" Type="Edm.String" MaxLength="3" sap:label="Unit" sap:semantics="unit-of-measure"/>
+                <NavigationProperty Name="to_RFDYRequirement" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_07C23D82F9E2F878C9B5A2D4BBA7CCEB" FromRole="FromRole_assoc_07C23D82F9E2F878C9B5A2D4BBA7CCEB" ToRole="ToRole_assoc_07C23D82F9E2F878C9B5A2D4BBA7CCEB"/>
+            </EntityType>
+            <EntityType Name="C_RFDYMaterialWithTotalsType" sap:label="Release for Delivery Material with totals" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="RFDYMaterialUUID"/>
+                </Key>
+                <Property Name="Refresh_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Release_for_delivery_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Update_documents_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RFDYMaterialUUID" Type="Edm.Guid" Nullable="false" sap:label="Material ID" sap:quickinfo="ID for a Material in Release for Delivery" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="RFDYWorklistUUID" Type="Edm.Guid" sap:label="Worklist ID" sap:quickinfo="ID of a Worklist in Release for Delivery" sap:creatable="false" sap:updatable="false" sap:value-list="standard"/>
+                <Property Name="Material" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:text="Material_Text" sap:label="Material" sap:quickinfo="Material Number" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Material_Text" Type="Edm.String" MaxLength="40" sap:label="Material Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SupplyingPlant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:text="SupplyingPlant_Text" sap:label="Plant" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SupplyingPlant_Text" Type="Edm.String" MaxLength="30" sap:label="Plant Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ProcessingStatus" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Material Status" sap:quickinfo="Status of a Material in Release for Delivery"/>
+                <Property Name="ConfirmedQuantityInBaseUnit" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="BaseUnit" sap:label="Sum of Confirmed Quantities" sap:heading="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="RequestedQuantityInBaseUnit" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="BaseUnit" sap:label="Sum of Requested Quantities" sap:heading="" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="AvailableQuantityInBaseUnit" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="BaseUnit" sap:label="Available Quantity" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="UnconsideredQuantityInBaseUnit" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="BaseUnit" sap:label="Available Quantity" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="BaseUnit" Type="Edm.String" MaxLength="3" sap:label="Base Unit of Measure" sap:semantics="unit-of-measure"/>
+                <Property Name="NumberOfRqmtsWithConfDeficit" Type="Edm.Int32" sap:label="Backordered Items" sap:quickinfo="Number of Backordered Items in Release for Delivery" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ConfirmationDeficitImpact" Type="Edm.Decimal" Precision="5" Scale="2" sap:label="Impact" sap:quickinfo="Normalized Impact of Confirmation Deficit in RFDY" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ConfDeficitImpactIsCritical" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Is Impact Critical" sap:quickinfo="Indicator if Impact of Conf. Deficit is Critical in RFDY" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NmbrOfRqmtsWithDocSyncInProc" Type="Edm.Int32" sap:creatable="false" sap:updatable="false"/>
+                <NavigationProperty Name="to_RFDYRequirement" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_8561616852A6F9D4D8A149D63D21D304" FromRole="FromRole_assoc_8561616852A6F9D4D8A149D63D21D304" ToRole="ToRole_assoc_8561616852A6F9D4D8A149D63D21D304"/>
+                <NavigationProperty Name="to_RFDYSurplusBucket" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_72A35D68EE579AF379829C165095F9B3" FromRole="FromRole_assoc_72A35D68EE579AF379829C165095F9B3" ToRole="ToRole_assoc_72A35D68EE579AF379829C165095F9B3"/>
+                <NavigationProperty Name="to_RFDYWorklist" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_F4EA57D81194E2A6883964A01FD08B0C" FromRole="FromRole_assoc_F4EA57D81194E2A6883964A01FD08B0C" ToRole="ToRole_assoc_F4EA57D81194E2A6883964A01FD08B0C"/>
+            </EntityType>
+            <EntityType Name="C_RFDYOutboundDeliveryItemType" sap:label="Release for Delivery Outbound Delivery Item" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="OutboundDelivery"/>
+                    <PropertyRef Name="OutboundDeliveryItem"/>
+                </Key>
+                <Property Name="OutboundDelivery" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Outbound Delivery"/>
+                <Property Name="OutboundDeliveryItem" Type="Edm.String" Nullable="false" MaxLength="6" sap:display-format="NonNegative" sap:label="Outb. Delivery Item" sap:quickinfo="Outbound Delivery Item"/>
+                <Property Name="ReferenceSDDocument" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Reference document" sap:quickinfo="Document number of the reference document"/>
+                <Property Name="ReferenceSDDocumentItem" Type="Edm.String" MaxLength="6" sap:display-format="NonNegative" sap:label="Reference Item" sap:quickinfo="Item number of the reference item"/>
+                <Property Name="ReferenceSDDocumentCategory" Type="Edm.String" MaxLength="4" sap:label="Preceding Doc.Categ." sap:quickinfo="Document Category of Preceding SD Document"/>
+                <Property Name="ActualDeliveredQtyInBaseUnit" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="BaseUnit" sap:label="Actual delivery qty" sap:quickinfo="Actual quantity delivered in stockkeeping units"/>
+                <Property Name="BaseUnit" Type="Edm.String" MaxLength="3" sap:label="Base Unit of Measure" sap:semantics="unit-of-measure"/>
+                <Property Name="OverallSDProcessStatus" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:text="OverallSDProcessStatus_Text" sap:label="Overall Status" sap:quickinfo="Overall Processing Status (Header/All Items)"/>
+                <Property Name="OverallSDProcessStatus_Text" Type="Edm.String" MaxLength="20" sap:label="Description" sap:quickinfo="Status Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Created on" sap:quickinfo="Date on which the record was created"/>
+            </EntityType>
+            <EntityType Name="C_RFDYPrsnlWorklistWithTotQtsType" sap:label="Release For Delivery Personal Worklist With Total Quantities" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="RFDYWorklistUUID"/>
+                </Key>
+                <Property Name="Pick_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Refresh_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RFDYWorklistUUID" Type="Edm.Guid" Nullable="false" sap:label="Worklist ID" sap:quickinfo="ID of a Worklist in Release for Delivery" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ResponsibilityUUID" Type="Edm.Guid" sap:label="Responsibility UUID" sap:quickinfo="UUID of a Order Fulfillment Responsibility"/>
+                <Property Name="ResponsibilityName" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Responsibility Name" sap:quickinfo="Name of an Order Fulfillment Responsibility" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="HorizonForSelectionInDays" Type="Edm.Int16" sap:label="Horizon" sap:quickinfo="Horizon for Which Requirements are Selected"/>
+                <Property Name="CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="User Name"/>
+                <Property Name="CreationDateTime" Type="Edm.DateTimeOffset" Precision="0" sap:label="Creation Timestamp" sap:quickinfo="Creation Timestamp in Release for Delivery"/>
+                <Property Name="LastChangeDateTime" Type="Edm.DateTimeOffset" Precision="0" sap:label="Last Change Timestmp" sap:quickinfo="Last Change Timestamp in Release for Delivery"/>
+                <Property Name="ProcessingStatus" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Worklist Status" sap:quickinfo="Status of a Worklist in Release for Delivery"/>
+                <Property Name="Processor" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Processor" sap:quickinfo="Processor of a Worklist in Release for Delivery"/>
+                <Property Name="IsProcessedByMe" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="In Process by Me" sap:quickinfo="In Process by Me Indicator for a Worklist in RFDY" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="AvgConfirmationDeficitImpact" Type="Edm.Decimal" Precision="5" Scale="2" sap:label="Impact" sap:quickinfo="Normalized Impact of Confirmation Deficit in RFDY" sap:creatable="false" sap:updatable="false"/>
+                <NavigationProperty Name="to_RFDYMaterialWithTotals" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_E4D9F67E4B77F25694EE65534ACB9608" FromRole="FromRole_assoc_E4D9F67E4B77F25694EE65534ACB9608" ToRole="ToRole_assoc_E4D9F67E4B77F25694EE65534ACB9608"/>
+            </EntityType>
+            <EntityType Name="C_RFDYRequirementWithCalcFigsType" sap:label="RFDY Requirement With Figures Calculated On-the-Fly" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="RFDYRequirementUUID"/>
+                </Key>
+                <Property Name="IsPostponed_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IsProtected_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PostponementCategory_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RFDYRequirementUUID" Type="Edm.Guid" Nullable="false" sap:label="Requirement ID" sap:quickinfo="ID of a Requirement in Release for Delivery" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="RFDYMaterialUUID" Type="Edm.Guid" sap:label="Material ID" sap:quickinfo="ID for a Material in Release for Delivery" sap:creatable="false" sap:updatable="false" sap:value-list="standard"/>
+                <Property Name="RFDYWorklistUUID" Type="Edm.Guid" sap:label="Worklist ID" sap:quickinfo="ID of a Worklist in Release for Delivery" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ATPRelevantDocumentCategory" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Category" sap:quickinfo="Category of a Document Included in ATP Checks" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ATPRelevantDocument" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Document" sap:quickinfo="Document Number" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ATPRelevantDocumentItem" Type="Edm.String" MaxLength="6" sap:display-format="NonNegative" sap:label="Item" sap:quickinfo="Line Item Number" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ATPRelevantDocScheduleLine" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative" sap:label="Schedule Line" sap:quickinfo="Schedule Line Number"/>
+                <Property Name="SupplyingStorageLocation" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Storage location"/>
+                <Property Name="Batch" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Batch" sap:quickinfo="Batch Number"/>
+                <Property Name="ReqdProdAvailabilityUTCDateTme" Type="Edm.DateTimeOffset" Precision="0" sap:label="Req. Mat. Avail. Dte" sap:quickinfo="Requested Material Availability Timestamp in UTC"/>
+                <Property Name="ReqdProdAvailabilityTimeZone" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Time Zone"/>
+                <Property Name="ReqdAvailyTmznUTCOffsetInSecs" Type="Edm.Int32" sap:label="Time Zone Difference" sap:quickinfo="ABAP System Field: Time Zone" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OrderedQuantityInBaseUnit" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="BaseUnit" sap:label="Order Quantity" sap:quickinfo="Cumulative order quantity in sales units"/>
+                <Property Name="RequestedQuantityInBaseUnit" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="BaseUnit" sap:label="Requested Quantity"/>
+                <Property Name="BaseUnit" Type="Edm.String" MaxLength="3" sap:label="Unit" sap:semantics="unit-of-measure"/>
+                <Property Name="RequestedLoadingUTCDateTime" Type="Edm.DateTimeOffset" Precision="0" sap:label="Req. Loading Date" sap:quickinfo="Requested Loading Timestamp in UTC"/>
+                <Property Name="RequestedLoadingTimeZone" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Time Zone"/>
+                <Property Name="ReqdLoadgTmznUTCOffsetInSecs" Type="Edm.Int32" sap:label="Time Zone Difference" sap:quickinfo="ABAP System Field: Time Zone" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RequestedGoodsIssueUTCDateTime" Type="Edm.DateTimeOffset" Precision="0" sap:label="Req. Goods Issue" sap:quickinfo="Requested Goods Issue Timestamp in UTC"/>
+                <Property Name="RequestedGoodsIssueTimeZone" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Time Zone"/>
+                <Property Name="ReqdGdsIssTmznUTCOffsetInSecs" Type="Edm.Int32" sap:label="Time Zone Difference" sap:quickinfo="ABAP System Field: Time Zone" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RequestedDeliveryUTCDateTime" Type="Edm.DateTimeOffset" Precision="0" sap:label="Req. Delivery Date" sap:quickinfo="Requested Delivery Timestamp in UTC"/>
+                <Property Name="RequestedDeliveryTimeZone" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Time Zone"/>
+                <Property Name="ReqdDelivTmznUTCOffsetInSecs" Type="Edm.Int32" sap:label="Time Zone Difference" sap:quickinfo="ABAP System Field: Time Zone" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IsProtected" Type="Edm.Boolean" sap:display-format="UpperCase" sap:field-control="IsProtected_fc" sap:label="Is Protected" sap:quickinfo="Protection Indicator in Release for Delivery"/>
+                <Property Name="IsPostponed" Type="Edm.Boolean" sap:display-format="UpperCase" sap:field-control="IsPostponed_fc" sap:label="Is Postponed" sap:quickinfo="Postponement Indicator in Release for Delivery"/>
+                <Property Name="PostponementCategory" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:field-control="PostponementCategory_fc" sap:text="PostponementCategory_Text" sap:label="Postponement Cat." sap:quickinfo="Postponement Category in Release for Delivery"/>
+                <Property Name="PostponementCategory_Text" Type="Edm.String" MaxLength="60" sap:label="Short Descript." sap:quickinfo="Short Text for Fixed Values" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="IsProcessable" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Processable" sap:quickinfo="Indicator for Processable Items in Release for Delivery" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SDDocumentCategory" Type="Edm.String" MaxLength="4" sap:label="SD Document Category" sap:creatable="false" sap:updatable="false"/>
+                <NavigationProperty Name="to_OutboundDeliveryItem" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_45A62F440B82DF8CD8FBCBD5DE79B673" FromRole="FromRole_assoc_45A62F440B82DF8CD8FBCBD5DE79B673" ToRole="ToRole_assoc_45A62F440B82DF8CD8FBCBD5DE79B673"/>
+                <NavigationProperty Name="to_RFDYChangedRequirement" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_4CAB0F6628967BECE0531E54099DF5BC" FromRole="FromRole_assoc_4CAB0F6628967BECE0531E54099DF5BC" ToRole="ToRole_assoc_4CAB0F6628967BECE0531E54099DF5BC"/>
+                <NavigationProperty Name="to_RFDYMaterial" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_052F76CC5E2793DFD27B91EF29A2D3C8" FromRole="FromRole_assoc_052F76CC5E2793DFD27B91EF29A2D3C8" ToRole="ToRole_assoc_052F76CC5E2793DFD27B91EF29A2D3C8"/>
+                <NavigationProperty Name="to_RFDYRqmtDpndcyGroupMember" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_A682CA80BE3AFDD4513FF8225A7E1482" FromRole="FromRole_assoc_A682CA80BE3AFDD4513FF8225A7E1482" ToRole="ToRole_assoc_A682CA80BE3AFDD4513FF8225A7E1482"/>
+                <NavigationProperty Name="to_RFDYSalesOrderConfirmation" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_0ECCD4535731DE30B6040CA4750AC4CF" FromRole="FromRole_assoc_0ECCD4535731DE30B6040CA4750AC4CF" ToRole="ToRole_assoc_0ECCD4535731DE30B6040CA4750AC4CF"/>
+                <NavigationProperty Name="to_RFDYSalesOrderRequirement" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_6D6D4A815BB6B14893D90A50FF6A88DA" FromRole="FromRole_assoc_6D6D4A815BB6B14893D90A50FF6A88DA" ToRole="ToRole_assoc_6D6D4A815BB6B14893D90A50FF6A88DA"/>
+                <NavigationProperty Name="to_RFDYSlsOrdConfOutwithSelHrzn" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_A969AFFB71FC24E4A15CD9C2BDC53097" FromRole="FromRole_assoc_A969AFFB71FC24E4A15CD9C2BDC53097" ToRole="ToRole_assoc_A969AFFB71FC24E4A15CD9C2BDC53097"/>
+                <NavigationProperty Name="to_RFDYSlsOrdConfWthnSelHorizon" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_DE42CE629B2218523CC68F317126C7FE" FromRole="FromRole_assoc_DE42CE629B2218523CC68F317126C7FE" ToRole="ToRole_assoc_DE42CE629B2218523CC68F317126C7FE"/>
+                <NavigationProperty Name="to_RFDYStockTransptRequirement" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_20DC5F9401B091157DE1B7F20D0BC90A" FromRole="FromRole_assoc_20DC5F9401B091157DE1B7F20D0BC90A" ToRole="ToRole_assoc_20DC5F9401B091157DE1B7F20D0BC90A"/>
+            </EntityType>
+            <EntityType Name="C_RFDYRqmtDependencyGroupType" sap:label="Release for Delivery Dependency Group" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="RFDYRqmtDependencyGroupUUID"/>
+                </Key>
+                <Property Name="RFDYRqmtDependencyGroupUUID" Type="Edm.Guid" Nullable="false" sap:label="Dependency Group ID" sap:quickinfo="ID of a Requirement Dependency Group in Release for Delivery"/>
+                <Property Name="ATPRqmtDependencyGroupType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:text="ATPRqmtDependencyGroupType_Text" sap:label="Dependency Grp Type" sap:quickinfo="Type of a Requirement Dependency Group in aATP"/>
+                <Property Name="ATPRqmtDependencyGroupType_Text" Type="Edm.String" MaxLength="60" sap:label="Short Descript." sap:quickinfo="Short Text for Fixed Values" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ATPRqmtDpndcySourceCategory" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:text="ATPRqmtDpndcySourceCategory_Text" sap:label="Dep. Source Category" sap:quickinfo="Source Category of a Requirement Dependency in aATP"/>
+                <Property Name="ATPRqmtDpndcySourceCategory_Text" Type="Edm.String" MaxLength="60" sap:label="Short Descript." sap:quickinfo="Short Text for Fixed Values" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShippingDateEqualityCriterion" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Date Type" sap:quickinfo="Date Type for Scheduling Used by ATP"/>
+                <NavigationProperty Name="to_RFDYRqmtDpndcyGroupMember" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_29B063514DB6E2AB02D8FF835664F8D9" FromRole="FromRole_assoc_29B063514DB6E2AB02D8FF835664F8D9" ToRole="ToRole_assoc_29B063514DB6E2AB02D8FF835664F8D9"/>
+            </EntityType>
+            <EntityType Name="C_RFDYRqmtDpndcyGroupMemberType" sap:label="Release for Delivery Dependency Group Member" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="RFDYRqmtDpndcyGroupMemberUUID"/>
+                </Key>
+                <Property Name="RFDYRqmtDpndcyGroupMemberUUID" Type="Edm.Guid" Nullable="false" sap:label="Dep. Group Member ID" sap:quickinfo="ID of a Requirement Dependency Group Member in RFDY"/>
+                <Property Name="RFDYRqmtDependencyGroupUUID" Type="Edm.Guid" sap:label="Dependency Group ID" sap:quickinfo="ID of a Requirement Dependency Group in Release for Delivery" sap:value-list="standard"/>
+                <Property Name="RFDYRequirementUUID" Type="Edm.Guid" sap:label="Requirement ID" sap:quickinfo="ID of a Requirement in Release for Delivery" sap:value-list="standard"/>
+                <Property Name="ATPRelevantDocumentCategory" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Category" sap:quickinfo="Category of a Document Included in ATP Checks"/>
+                <Property Name="ATPRelevantDocument" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Document" sap:quickinfo="Document Number"/>
+                <Property Name="ATPRelevantDocumentItem" Type="Edm.String" MaxLength="6" sap:display-format="NonNegative" sap:label="Item" sap:quickinfo="Line Item Number"/>
+                <Property Name="ATPRelevantDocScheduleLine" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative" sap:label="Schedule Line" sap:quickinfo="Schedule Line Number"/>
+                <NavigationProperty Name="to_RFDYRequirement" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_6881AB1AB95277146C5183191CC46FC5" FromRole="FromRole_assoc_6881AB1AB95277146C5183191CC46FC5" ToRole="ToRole_assoc_6881AB1AB95277146C5183191CC46FC5"/>
+                <NavigationProperty Name="to_RFDYRqmtDependencyGroup" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_880E28DF3274D9A2C5F2651DCF08A6D2" FromRole="FromRole_assoc_880E28DF3274D9A2C5F2651DCF08A6D2" ToRole="ToRole_assoc_880E28DF3274D9A2C5F2651DCF08A6D2"/>
+            </EntityType>
+            <EntityType Name="C_RFDYSalesOrderType" sap:label="Release for Delivery Sales Order" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="SalesOrder"/>
+                </Key>
+                <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Sales Order"/>
+                <Property Name="SalesOrderType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:text="SalesOrderType_Text" sap:label="Sales Order Type"/>
+                <Property Name="SalesOrderType_Text" Type="Edm.String" MaxLength="20" sap:label="Description" sap:quickinfo="Sales Document Type Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrganization" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:text="SalesOrganization_Text" sap:label="Sales Organization"/>
+                <Property Name="SalesOrganization_Text" Type="Edm.String" MaxLength="20" sap:label="Sales Organization Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DistributionChannel" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:text="DistributionChannel_Text" sap:label="Distribution Channel"/>
+                <Property Name="DistributionChannel_Text" Type="Edm.String" MaxLength="20" sap:label="Distribution Channel Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OrganizationDivision" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:text="OrganizationDivision_Text" sap:label="Division"/>
+                <Property Name="OrganizationDivision_Text" Type="Edm.String" MaxLength="20" sap:label="Division Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Document Date" sap:quickinfo="Document Date (Date Received/Sent)"/>
+                <Property Name="SoldToParty" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:text="SoldToParty_Text" sap:label="Sold-To Party"/>
+                <Property Name="SoldToParty_Text" Type="Edm.String" MaxLength="80" sap:label="Name of Customer" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShipToParty" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:text="ShipToParty_Text" sap:label="Customer" sap:quickinfo="Customer Number" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ShipToParty_Text" Type="Edm.String" MaxLength="80" sap:label="Name of Customer" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchaseOrderByCustomer" Type="Edm.String" MaxLength="35" sap:label="Customer Reference"/>
+                <Property Name="ShippingCondition" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:text="ShippingCondition_Text" sap:label="Shipping Conditions"/>
+                <Property Name="ShippingCondition_Text" Type="Edm.String" MaxLength="20" sap:label="Description" sap:quickinfo="Shipping Conditions Description" sap:creatable="false" sap:updatable="false"/>
+                <NavigationProperty Name="to_RFDYSalesOrderItem" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_5AAFD9175BB90F00B50698F946C76528" FromRole="FromRole_assoc_5AAFD9175BB90F00B50698F946C76528" ToRole="ToRole_assoc_5AAFD9175BB90F00B50698F946C76528"/>
+            </EntityType>
+            <EntityType Name="C_RFDYSalesOrderConfirmationType" sap:label="Release for Delivery Sales Order Confirmation" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="RFDYConfirmationUUID"/>
+                </Key>
+                <Property Name="ConfirmedQuantityInBaseUnit_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RFDYConfirmationUUID" Type="Edm.Guid" Nullable="false" sap:label="Confirmation ID" sap:quickinfo="ID for a Confirmation in Release for Delivery" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="RFDYRequirementUUID" Type="Edm.Guid" sap:label="Requirement ID" sap:quickinfo="ID of a Requirement in Release for Delivery" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ConfirmedQuantityInBaseUnit" Type="Edm.Decimal" Precision="15" Scale="3" sap:field-control="ConfirmedQuantityInBaseUnit_fc" sap:unit="BaseUnit" sap:label="Confirmed Quantity"/>
+                <Property Name="BaseUnit" Type="Edm.String" MaxLength="3" sap:label="Unit" sap:semantics="unit-of-measure"/>
+                <Property Name="ConfdProdAvailabilityUTCDteTme" Type="Edm.DateTimeOffset" Precision="0" sap:label="Confirmed MAD" sap:quickinfo="Confirmed Material Availability Timestamp in UTC"/>
+                <Property Name="ConfdProdAvailabilityTimeZone" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Time Zone"/>
+                <Property Name="ConfdAvailyTmznUTCOffsetInSecs" Type="Edm.Int32" sap:label="Time Zone Difference" sap:quickinfo="ABAP System Field: Time Zone" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ConfirmedLoadingUTCDateTime" Type="Edm.DateTimeOffset" Precision="0" sap:label="Cnf. Loading Date" sap:quickinfo="Confirmed Loading Timestamp in UTC"/>
+                <Property Name="ConfirmedLoadingTimeZone" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Time Zone"/>
+                <Property Name="ConfdLoadgTmznUTCOffsetInSecs" Type="Edm.Int32" sap:label="Time Zone Difference" sap:quickinfo="ABAP System Field: Time Zone" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ConfirmedGoodsIssueUTCDateTime" Type="Edm.DateTimeOffset" Precision="0" sap:label="Cnf. Goods Issue" sap:quickinfo="Confirmed Goods Issue Timestamp in UTC"/>
+                <Property Name="ConfirmedGoodsIssueTimeZone" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Time Zone"/>
+                <Property Name="ConfdGdsIssTmznUTCOffsetInSecs" Type="Edm.Int32" sap:label="Time Zone Difference" sap:quickinfo="ABAP System Field: Time Zone" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ConfirmedDeliveryUTCDateTime" Type="Edm.DateTimeOffset" Precision="0" sap:label="Confirmed Del. Date" sap:quickinfo="Confirmed Delivery Timestamp in UTC"/>
+                <Property Name="ConfirmedDeliveryTimeZone" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Time Zone"/>
+                <Property Name="ConfdDelivTmznUTCOffsetInSecs" Type="Edm.Int32" sap:label="Time Zone Difference" sap:quickinfo="ABAP System Field: Time Zone" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IsWithinSelectionHorizon" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Is Within Horizon" sap:quickinfo="Indicator Whether an ATP Entity Is Within a Specific Horizon"/>
+            </EntityType>
+            <EntityType Name="C_RFDYSalesOrderItemType" sap:label="Release for Delivery Sales Order Item" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="SalesOrder"/>
+                    <PropertyRef Name="SalesOrderItem"/>
+                </Key>
+                <Property Name="SalesOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Sales Order"/>
+                <Property Name="SalesOrderItem" Type="Edm.String" Nullable="false" MaxLength="6" sap:display-format="NonNegative" sap:label="Item" sap:quickinfo="Sales Order Item"/>
+                <Property Name="Material" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:text="Material_Text" sap:label="Material" sap:quickinfo="Material Number"/>
+                <Property Name="Material_Text" Type="Edm.String" MaxLength="40" sap:label="Material Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ProductionPlant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:text="ProductionPlant_Text" sap:label="Plant" sap:quickinfo="Plant (Own or External)"/>
+                <Property Name="ProductionPlant_Text" Type="Edm.String" MaxLength="30" sap:label="Plant Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="TotalConfirmedQuantity" Type="Edm.Decimal" Precision="13" Scale="3"/>
+                <Property Name="TotalRequestedQuantity" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="BaseUnit" sap:label="Requ.SalesOrder Qty." sap:quickinfo="Requested Order Quantity in Base Unit"/>
+                <Property Name="BaseUnit" Type="Edm.String" MaxLength="3" sap:label="Base Unit of Measure" sap:semantics="unit-of-measure"/>
+            </EntityType>
+            <EntityType Name="C_RFDYSalesOrderRequirementType" sap:label="Release for Delivery Sales Order Requirement" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="RFDYRequirementUUID"/>
+                </Key>
+                <Property Name="IsPostponed_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IsProtected_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PostponementCategory_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RFDYRequirementUUID" Type="Edm.Guid" Nullable="false" sap:label="Requirement ID" sap:quickinfo="ID of a Requirement in Release for Delivery" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="RFDYMaterialUUID" Type="Edm.Guid" sap:label="Material ID" sap:quickinfo="ID for a Material in Release for Delivery" sap:creatable="false" sap:updatable="false" sap:value-list="standard"/>
+                <Property Name="SalesOrder" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Sales Order"/>
+                <Property Name="SalesOrderItem" Type="Edm.String" MaxLength="6" sap:display-format="NonNegative" sap:label="Item" sap:quickinfo="Line Item Number" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderScheduleLine" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative" sap:label="Schedule Line" sap:quickinfo="Schedule Line Number"/>
+                <Property Name="SupplyingStorageLocation" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Storage location"/>
+                <Property Name="Batch" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Batch" sap:quickinfo="Batch Number"/>
+                <Property Name="ReqdProdAvailabilityUTCDateTme" Type="Edm.DateTimeOffset" Precision="0" sap:label="Req. Mat. Avail. Dte" sap:quickinfo="Requested Material Availability Timestamp in UTC"/>
+                <Property Name="OrderedQuantityInBaseUnit" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="BaseUnit" sap:label="Order Quantity" sap:quickinfo="Cumulative order quantity in sales units"/>
+                <Property Name="RequestedQuantityInBaseUnit" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="BaseUnit" sap:label="Requested Quantity"/>
+                <Property Name="BaseUnit" Type="Edm.String" MaxLength="3" sap:label="Unit" sap:semantics="unit-of-measure"/>
+                <Property Name="RequestedLoadingUTCDateTime" Type="Edm.DateTimeOffset" Precision="0" sap:label="Req. Loading Date" sap:quickinfo="Requested Loading Timestamp in UTC"/>
+                <Property Name="RequestedGoodsIssueUTCDateTime" Type="Edm.DateTimeOffset" Precision="0" sap:label="Req. Goods Issue" sap:quickinfo="Requested Goods Issue Timestamp in UTC"/>
+                <Property Name="RequestedDeliveryUTCDateTime" Type="Edm.DateTimeOffset" Precision="0" sap:label="Req. Delivery Date" sap:quickinfo="Requested Delivery Timestamp in UTC"/>
+                <Property Name="IsProtected" Type="Edm.Boolean" sap:display-format="UpperCase" sap:field-control="IsProtected_fc" sap:label="Is Protected" sap:quickinfo="Protection Indicator in Release for Delivery"/>
+                <Property Name="IsPostponed" Type="Edm.Boolean" sap:display-format="UpperCase" sap:field-control="IsPostponed_fc" sap:label="Is Postponed" sap:quickinfo="Postponement Indicator in Release for Delivery"/>
+                <Property Name="PostponementCategory" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:field-control="PostponementCategory_fc" sap:text="PostponementCategory_Text" sap:label="Postponement Cat." sap:quickinfo="Postponement Category in Release for Delivery"/>
+                <Property Name="PostponementCategory_Text" Type="Edm.String" MaxLength="60" sap:label="Short Descript." sap:quickinfo="Short Text for Fixed Values" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="IsProcessable" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Processable" sap:quickinfo="Indicator for Processable Items in Release for Delivery" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SoldToParty" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Sold-To Party" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SoldToPartyName" Type="Edm.String" MaxLength="80" sap:label="Name of Customer" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:text="SalesOrderType_Text" sap:label="Sales Order Type" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderType_Text" Type="Edm.String" MaxLength="20" sap:label="Description" sap:quickinfo="Sales Document Type Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrderDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Document Date" sap:quickinfo="Document Date (Date Received/Sent)" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DeliveryPriority" Type="Edm.String" MaxLength="2" sap:display-format="NonNegative" sap:text="DeliveryPriority_Text" sap:label="Delivery Priority" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DeliveryPriority_Text" Type="Edm.String" MaxLength="20" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <NavigationProperty Name="to_OutboundDeliveryItem" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_1F9E70DC646CEC80649F71C3989F51C3" FromRole="FromRole_assoc_1F9E70DC646CEC80649F71C3989F51C3" ToRole="ToRole_assoc_1F9E70DC646CEC80649F71C3989F51C3"/>
+                <NavigationProperty Name="to_RFDYChangedRequirement" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_E3815B4C4EC5DF9324087778F9729054" FromRole="FromRole_assoc_E3815B4C4EC5DF9324087778F9729054" ToRole="ToRole_assoc_E3815B4C4EC5DF9324087778F9729054"/>
+                <NavigationProperty Name="to_RFDYMaterial" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_BE67CD73D2C9A7C89294DCBBC5E7CE1A" FromRole="FromRole_assoc_BE67CD73D2C9A7C89294DCBBC5E7CE1A" ToRole="ToRole_assoc_BE67CD73D2C9A7C89294DCBBC5E7CE1A"/>
+                <NavigationProperty Name="to_RFDYSalesOrder" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_42C3EC16183ABE0C1ADAEE29E65A8B13" FromRole="FromRole_assoc_42C3EC16183ABE0C1ADAEE29E65A8B13" ToRole="ToRole_assoc_42C3EC16183ABE0C1ADAEE29E65A8B13"/>
+                <NavigationProperty Name="to_RFDYSalesOrderConfirmation" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_6FD851401672E33787D394CC081A8B7A" FromRole="FromRole_assoc_6FD851401672E33787D394CC081A8B7A" ToRole="ToRole_assoc_6FD851401672E33787D394CC081A8B7A"/>
+                <NavigationProperty Name="to_RFDYSlsOrdConfOutwithSelHrzn" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_EA7266BCDBF193754AD8F4DEF2C86331" FromRole="FromRole_assoc_EA7266BCDBF193754AD8F4DEF2C86331" ToRole="ToRole_assoc_EA7266BCDBF193754AD8F4DEF2C86331"/>
+                <NavigationProperty Name="to_RFDYSlsOrdConfWthnSelHorizon" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_26559AC42C51BF58759E06146401162D" FromRole="FromRole_assoc_26559AC42C51BF58759E06146401162D" ToRole="ToRole_assoc_26559AC42C51BF58759E06146401162D"/>
+            </EntityType>
+            <EntityType Name="C_RFDYStockTransportOrderType" sap:label="Release for Delivery Stock Transport Order" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="StockTransportOrder"/>
+                </Key>
+                <Property Name="StockTransportOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="STO Number" sap:quickinfo="Stock Transport Order"/>
+                <Property Name="PurchaseOrderType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:text="PurchaseOrderType_Text" sap:label="Purchase Order Type"/>
+                <Property Name="PurchaseOrderType_Text" Type="Edm.String" MaxLength="20" sap:label="Doc. Type Descript." sap:quickinfo="Short Description of Purchasing Document Type" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchasingGroup" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:text="PurchasingGroup_Text" sap:label="Purchasing Group"/>
+                <Property Name="PurchasingGroup_Text" Type="Edm.String" MaxLength="18" sap:label="Purchasing Grp. Name" sap:quickinfo="Purchasing Group Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchasingOrganization" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:text="PurchasingOrganization_Text" sap:label="Purch. organization" sap:quickinfo="Purchasing organization"/>
+                <Property Name="PurchasingOrganization_Text" Type="Edm.String" MaxLength="20" sap:label="Purch. Org. Name" sap:quickinfo="Purchasing Organization Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CompanyCode" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:text="CompanyCode_Text" sap:label="Company Code"/>
+                <Property Name="CompanyCode_Text" Type="Edm.String" MaxLength="25" sap:label="Company Name" sap:quickinfo="Name of Company Code or Company" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchaseOrderDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Purchase Order Date"/>
+                <Property Name="SupplyingPlant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:text="SupplyingPlant_Text" sap:label="Supplying Plant" sap:quickinfo="Supplying (issuing) plant in case of stock transport order"/>
+                <Property Name="SupplyingPlant_Text" Type="Edm.String" MaxLength="30" sap:label="Plant Name" sap:creatable="false" sap:updatable="false"/>
+                <NavigationProperty Name="to_RFDYStockTransportOrderItem" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_0D7589499045B6E5E5D2E6107C9F3916" FromRole="FromRole_assoc_0D7589499045B6E5E5D2E6107C9F3916" ToRole="ToRole_assoc_0D7589499045B6E5E5D2E6107C9F3916"/>
+            </EntityType>
+            <EntityType Name="C_RFDYStockTransportOrderItemType" sap:label="Release for Delivery Stock Transport Order Item" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="StockTransportOrder"/>
+                    <PropertyRef Name="StockTransportOrderItem"/>
+                </Key>
+                <Property Name="StockTransportOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="STO Number" sap:quickinfo="Stock Transport Order"/>
+                <Property Name="StockTransportOrderItem" Type="Edm.String" Nullable="false" MaxLength="5" sap:display-format="NonNegative" sap:label="STO Item Number" sap:quickinfo="Stock Transport Order Item"/>
+                <Property Name="Material" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:text="Material_Text" sap:label="Material" sap:quickinfo="Material Number"/>
+                <Property Name="Material_Text" Type="Edm.String" MaxLength="40" sap:label="Material Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ReceivingPlant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:text="ReceivingPlant_Text" sap:label="Plant"/>
+                <Property Name="ReceivingPlant_Text" Type="Edm.String" MaxLength="30" sap:label="Plant Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="TotalRequestedQuantity" Type="Edm.Decimal" Precision="14" Scale="3"/>
+                <Property Name="TotalConfirmedQuantity" Type="Edm.Decimal" Precision="14" Scale="3"/>
+                <Property Name="BaseUnit" Type="Edm.String" MaxLength="3" sap:label="Base Unit of Measure" sap:semantics="unit-of-measure"/>
+                <NavigationProperty Name="to_RFDYStockTransportOrder" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_CA6DAF144CC340A9BD4FEF2B69D9BDCE" FromRole="FromRole_assoc_CA6DAF144CC340A9BD4FEF2B69D9BDCE" ToRole="ToRole_assoc_CA6DAF144CC340A9BD4FEF2B69D9BDCE"/>
+            </EntityType>
+            <EntityType Name="C_RFDYStockTransptRequirementType" sap:label="Release for Delivery Stock Transport Requirement" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="RFDYRequirementUUID"/>
+                </Key>
+                <Property Name="RFDYRequirementUUID" Type="Edm.Guid" Nullable="false" sap:label="Requirement ID" sap:quickinfo="ID of a Requirement in Release for Delivery" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="RFDYMaterialUUID" Type="Edm.Guid" sap:label="Material ID" sap:quickinfo="ID for a Material in Release for Delivery" sap:creatable="false" sap:updatable="false" sap:value-list="standard"/>
+                <Property Name="StockTransportOrder" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="STO Number" sap:quickinfo="Stock Transport Order"/>
+                <Property Name="StockTransportOrderItem" Type="Edm.String" MaxLength="5" sap:display-format="NonNegative" sap:label="PO Item" sap:quickinfo="Item Number of Purchase Order" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ScheduleLine" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative" sap:label="Schedule Line" sap:quickinfo="Schedule Line Number"/>
+                <Property Name="ATPRelevantDocumentItem" Type="Edm.String" MaxLength="6" sap:display-format="NonNegative" sap:label="Item" sap:quickinfo="Line Item Number" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ReceivingPlant" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:text="ReceivingPlantName" sap:label="Plant" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ReceivingPlantName" Type="Edm.String" MaxLength="30" sap:label="Plant Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CompanyCode" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:text="CompanyCodeName" sap:label="Company Code" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CompanyCodeName" Type="Edm.String" MaxLength="25" sap:label="Company Name" sap:quickinfo="Name of Company Code or Company" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchaseOrderType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:text="PurchaseOrderType_Text" sap:label="Purchase Order Type" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchaseOrderType_Text" Type="Edm.String" MaxLength="20" sap:label="Doc. Type Descript." sap:quickinfo="Short Description of Purchasing Document Type" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DeliveryPriority" Type="Edm.String" MaxLength="2" sap:display-format="NonNegative" sap:text="DeliveryPriority_Text" sap:label="Delivery Priority" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DeliveryPriority_Text" Type="Edm.String" MaxLength="20" sap:label="Description" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PurchaseOrderDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Purchase Order Date" sap:creatable="false" sap:updatable="false"/>
+                <NavigationProperty Name="to_OutboundDeliveryItem" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_E47C275B222CDDEC61245C9C68FBAD7F" FromRole="FromRole_assoc_E47C275B222CDDEC61245C9C68FBAD7F" ToRole="ToRole_assoc_E47C275B222CDDEC61245C9C68FBAD7F"/>
+                <NavigationProperty Name="to_RFDYChangedRequirement" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_4F8E71265700F5645D8183E46C604C57" FromRole="FromRole_assoc_4F8E71265700F5645D8183E46C604C57" ToRole="ToRole_assoc_4F8E71265700F5645D8183E46C604C57"/>
+                <NavigationProperty Name="to_RFDYMaterial" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_4F2E41EF2010587B02A5E10864138365" FromRole="FromRole_assoc_4F2E41EF2010587B02A5E10864138365" ToRole="ToRole_assoc_4F2E41EF2010587B02A5E10864138365"/>
+                <NavigationProperty Name="to_RFDYSalesOrderConfirmation" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_4AA06724B7A6C1E6CFE0D6334D275548" FromRole="FromRole_assoc_4AA06724B7A6C1E6CFE0D6334D275548" ToRole="ToRole_assoc_4AA06724B7A6C1E6CFE0D6334D275548"/>
+                <NavigationProperty Name="to_RFDYSlsOrdConfOutwithSelHrzn" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_2FC4E86D2EFD78AFC679ABD9DF8F899F" FromRole="FromRole_assoc_2FC4E86D2EFD78AFC679ABD9DF8F899F" ToRole="ToRole_assoc_2FC4E86D2EFD78AFC679ABD9DF8F899F"/>
+                <NavigationProperty Name="to_RFDYSlsOrdConfWthnSelHorizon" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_04CDCFAE34001577E0C17125ECFFA712" FromRole="FromRole_assoc_04CDCFAE34001577E0C17125ECFFA712" ToRole="ToRole_assoc_04CDCFAE34001577E0C17125ECFFA712"/>
+                <NavigationProperty Name="to_RFDYStockTransportOrder" Relationship="ATP_RELEASE_FOR_DELIVERY.assoc_41CD2FF1DC7E8316A81F5807D7FDAA78" FromRole="FromRole_assoc_41CD2FF1DC7E8316A81F5807D7FDAA78" ToRole="ToRole_assoc_41CD2FF1DC7E8316A81F5807D7FDAA78"/>
+            </EntityType>
+            <EntityType Name="C_RFDYSurplusBucketType" sap:label="Release for Delivery Surplus Bucket" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="RFDYSurplusBucketUUID"/>
+                </Key>
+                <Property Name="RFDYSurplusBucketUUID" Type="Edm.Guid" Nullable="false" sap:label="Surplus ID" sap:quickinfo="ID for a Surplus Bucket in Release for Delivery" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="RFDYMaterialUUID" Type="Edm.Guid" sap:label="Material ID" sap:quickinfo="ID for a Material in Release for Delivery" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SupplyingStorageLocation" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Storage location"/>
+                <Property Name="Batch" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Batch" sap:quickinfo="Batch Number"/>
+                <Property Name="PeriodStartUTCDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Time Stamp Long Form" sap:quickinfo="UTC time stamp in long form (YYYYMMDDhhmmss,mmmuuun)"/>
+                <Property Name="SurplusQuantityInBaseUnit" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="BaseUnit" sap:label="Surplus Quantity" sap:quickinfo="Quantity that becomes available at a given date"/>
+                <Property Name="UnconsideredQuantityInBaseUnit" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="BaseUnit" sap:label="Unconsidered Qty" sap:quickinfo="Unconsidered Quantity in Release for Delivery"/>
+                <Property Name="BaseUnit" Type="Edm.String" MaxLength="3" sap:label="Unit" sap:semantics="unit-of-measure"/>
+            </EntityType>
+            <ComplexType Name="DummyFunctionImportResult">
+                <Property Name="IsInvalid" Type="Edm.Boolean" sap:label="TRUE"/>
+            </ComplexType>
+            <ComplexType Name="TblAtpR4dWorkloadPreview">
+                <Property Name="Responsibilityuuid" Type="Edm.Guid" sap:label="Responsibility UUID"/>
+                <Property Name="Material" Type="Edm.String" MaxLength="40" sap:label="Material"/>
+                <Property Name="Supplyingplant" Type="Edm.String" MaxLength="4" sap:label="Plant"/>
+                <Property Name="Processingstatus" Type="Edm.String" MaxLength="1" sap:label="Material Status"/>
+            </ComplexType>
+            <Association Name="to_RFDYModifiedRequirementFromRefresh" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.RFDYRequirementRefreshType" Multiplicity="1" Role="FromRole_to_RFDYModifiedRequirementFromRefresh"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.RFDYModifiedRequirementType" Multiplicity="*" Role="ToRole_to_RFDYModifiedRequirementFromRefresh"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_to_RFDYModifiedRequirementFromRefresh">
+                        <PropertyRef Name="RFDYRequestUUID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_to_RFDYModifiedRequirementFromRefresh">
+                        <PropertyRef Name="RFDYRequirementUUID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="to_RFDYLockedRequirementFromRefresh" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.RFDYRequirementRefreshType" Multiplicity="1" Role="FromRole_to_RFDYLockedRequirementFromRefresh"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.RFDYLockedRequirementType" Multiplicity="*" Role="ToRole_to_RFDYLockedRequirementFromRefresh"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_to_RFDYLockedRequirementFromRefresh">
+                        <PropertyRef Name="RFDYRequestUUID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_to_RFDYLockedRequirementFromRefresh">
+                        <PropertyRef Name="RFDYRequiestUUID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="to_RFDYLockedRequirement" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.RFDYRequirementUpdateResultType" Multiplicity="1" Role="FromRole_to_RFDYLockedRequirement"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.RFDYLockedRequirementType" Multiplicity="*" Role="ToRole_to_RFDYLockedRequirement"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_to_RFDYLockedRequirement">
+                        <PropertyRef Name="RFDYRequestUUID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_to_RFDYLockedRequirement">
+                        <PropertyRef Name="RFDYRequiestUUID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="to_RFDYModifiedRequirement" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.RFDYRequirementUpdateResultType" Multiplicity="1" Role="FromRole_to_RFDYModifiedRequirement"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.RFDYModifiedRequirementType" Multiplicity="*" Role="ToRole_to_RFDYModifiedRequirement"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_to_RFDYModifiedRequirement">
+                        <PropertyRef Name="RFDYRequestUUID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_to_RFDYModifiedRequirement">
+                        <PropertyRef Name="RFDYRequirementUUID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_E47C275B222CDDEC61245C9C68FBAD7F" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYStockTransptRequirementType" Multiplicity="1" Role="FromRole_assoc_E47C275B222CDDEC61245C9C68FBAD7F"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYOutboundDeliveryItemType" Multiplicity="*" Role="ToRole_assoc_E47C275B222CDDEC61245C9C68FBAD7F"/>
+            </Association>
+            <Association Name="assoc_4F8E71265700F5645D8183E46C604C57" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYStockTransptRequirementType" Multiplicity="1" Role="FromRole_assoc_4F8E71265700F5645D8183E46C604C57"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYChangedRequirementType" Multiplicity="*" Role="ToRole_assoc_4F8E71265700F5645D8183E46C604C57"/>
+            </Association>
+            <Association Name="assoc_4F2E41EF2010587B02A5E10864138365" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYStockTransptRequirementType" Multiplicity="1" Role="FromRole_assoc_4F2E41EF2010587B02A5E10864138365"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYMaterialWithTotalsType" Multiplicity="1" Role="ToRole_assoc_4F2E41EF2010587B02A5E10864138365"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_assoc_4F2E41EF2010587B02A5E10864138365">
+                        <PropertyRef Name="RFDYMaterialUUID"/>
+                    </Principal>
+                    <Dependent Role="FromRole_assoc_4F2E41EF2010587B02A5E10864138365">
+                        <PropertyRef Name="RFDYMaterialUUID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_4AA06724B7A6C1E6CFE0D6334D275548" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYStockTransptRequirementType" Multiplicity="1" Role="FromRole_assoc_4AA06724B7A6C1E6CFE0D6334D275548"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYSalesOrderConfirmationType" Multiplicity="*" Role="ToRole_assoc_4AA06724B7A6C1E6CFE0D6334D275548"/>
+            </Association>
+            <Association Name="assoc_2FC4E86D2EFD78AFC679ABD9DF8F899F" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYStockTransptRequirementType" Multiplicity="1" Role="FromRole_assoc_2FC4E86D2EFD78AFC679ABD9DF8F899F"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYSalesOrderConfirmationType" Multiplicity="*" Role="ToRole_assoc_2FC4E86D2EFD78AFC679ABD9DF8F899F"/>
+            </Association>
+            <Association Name="assoc_04CDCFAE34001577E0C17125ECFFA712" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYStockTransptRequirementType" Multiplicity="1" Role="FromRole_assoc_04CDCFAE34001577E0C17125ECFFA712"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYSalesOrderConfirmationType" Multiplicity="1" Role="ToRole_assoc_04CDCFAE34001577E0C17125ECFFA712"/>
+            </Association>
+            <Association Name="assoc_41CD2FF1DC7E8316A81F5807D7FDAA78" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYStockTransptRequirementType" Multiplicity="1" Role="FromRole_assoc_41CD2FF1DC7E8316A81F5807D7FDAA78"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYStockTransportOrderType" Multiplicity="1" Role="ToRole_assoc_41CD2FF1DC7E8316A81F5807D7FDAA78"/>
+            </Association>
+            <Association Name="assoc_0D7589499045B6E5E5D2E6107C9F3916" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYStockTransportOrderType" Multiplicity="1" Role="FromRole_assoc_0D7589499045B6E5E5D2E6107C9F3916"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYStockTransportOrderItemType" Multiplicity="*" Role="ToRole_assoc_0D7589499045B6E5E5D2E6107C9F3916"/>
+            </Association>
+            <Association Name="assoc_E4D9F67E4B77F25694EE65534ACB9608" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYPrsnlWorklistWithTotQtsType" Multiplicity="1" Role="FromRole_assoc_E4D9F67E4B77F25694EE65534ACB9608"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYMaterialWithTotalsType" Multiplicity="*" Role="ToRole_assoc_E4D9F67E4B77F25694EE65534ACB9608"/>
+            </Association>
+            <Association Name="assoc_07C23D82F9E2F878C9B5A2D4BBA7CCEB" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYChangedRequirementType" Multiplicity="1" Role="FromRole_assoc_07C23D82F9E2F878C9B5A2D4BBA7CCEB"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYRequirementWithCalcFigsType" Multiplicity="1" Role="ToRole_assoc_07C23D82F9E2F878C9B5A2D4BBA7CCEB"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_assoc_07C23D82F9E2F878C9B5A2D4BBA7CCEB">
+                        <PropertyRef Name="RFDYRequirementUUID"/>
+                    </Principal>
+                    <Dependent Role="FromRole_assoc_07C23D82F9E2F878C9B5A2D4BBA7CCEB">
+                        <PropertyRef Name="RFDYRequirementUUID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_5AAFD9175BB90F00B50698F946C76528" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYSalesOrderType" Multiplicity="1" Role="FromRole_assoc_5AAFD9175BB90F00B50698F946C76528"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYSalesOrderItemType" Multiplicity="*" Role="ToRole_assoc_5AAFD9175BB90F00B50698F946C76528"/>
+            </Association>
+            <Association Name="assoc_29B063514DB6E2AB02D8FF835664F8D9" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYRqmtDependencyGroupType" Multiplicity="1" Role="FromRole_assoc_29B063514DB6E2AB02D8FF835664F8D9"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYRqmtDpndcyGroupMemberType" Multiplicity="*" Role="ToRole_assoc_29B063514DB6E2AB02D8FF835664F8D9"/>
+            </Association>
+            <Association Name="assoc_45A62F440B82DF8CD8FBCBD5DE79B673" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYRequirementWithCalcFigsType" Multiplicity="1" Role="FromRole_assoc_45A62F440B82DF8CD8FBCBD5DE79B673"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYOutboundDeliveryItemType" Multiplicity="*" Role="ToRole_assoc_45A62F440B82DF8CD8FBCBD5DE79B673"/>
+            </Association>
+            <Association Name="assoc_4CAB0F6628967BECE0531E54099DF5BC" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYRequirementWithCalcFigsType" Multiplicity="1" Role="FromRole_assoc_4CAB0F6628967BECE0531E54099DF5BC"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYChangedRequirementType" Multiplicity="*" Role="ToRole_assoc_4CAB0F6628967BECE0531E54099DF5BC"/>
+            </Association>
+            <Association Name="assoc_052F76CC5E2793DFD27B91EF29A2D3C8" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYRequirementWithCalcFigsType" Multiplicity="1" Role="FromRole_assoc_052F76CC5E2793DFD27B91EF29A2D3C8"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYMaterialWithTotalsType" Multiplicity="1" Role="ToRole_assoc_052F76CC5E2793DFD27B91EF29A2D3C8"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_assoc_052F76CC5E2793DFD27B91EF29A2D3C8">
+                        <PropertyRef Name="RFDYMaterialUUID"/>
+                    </Principal>
+                    <Dependent Role="FromRole_assoc_052F76CC5E2793DFD27B91EF29A2D3C8">
+                        <PropertyRef Name="RFDYMaterialUUID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_A682CA80BE3AFDD4513FF8225A7E1482" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYRequirementWithCalcFigsType" Multiplicity="1" Role="FromRole_assoc_A682CA80BE3AFDD4513FF8225A7E1482"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYRqmtDpndcyGroupMemberType" Multiplicity="*" Role="ToRole_assoc_A682CA80BE3AFDD4513FF8225A7E1482"/>
+            </Association>
+            <Association Name="assoc_0ECCD4535731DE30B6040CA4750AC4CF" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYRequirementWithCalcFigsType" Multiplicity="1" Role="FromRole_assoc_0ECCD4535731DE30B6040CA4750AC4CF"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYSalesOrderConfirmationType" Multiplicity="*" Role="ToRole_assoc_0ECCD4535731DE30B6040CA4750AC4CF"/>
+            </Association>
+            <Association Name="assoc_6D6D4A815BB6B14893D90A50FF6A88DA" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYRequirementWithCalcFigsType" Multiplicity="1" Role="FromRole_assoc_6D6D4A815BB6B14893D90A50FF6A88DA">
+                    <OnDelete Action="Cascade"/>
+                </End>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYSalesOrderRequirementType" Multiplicity="0..1" Role="ToRole_assoc_6D6D4A815BB6B14893D90A50FF6A88DA"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_assoc_6D6D4A815BB6B14893D90A50FF6A88DA">
+                        <PropertyRef Name="RFDYRequirementUUID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_assoc_6D6D4A815BB6B14893D90A50FF6A88DA">
+                        <PropertyRef Name="RFDYRequirementUUID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_A969AFFB71FC24E4A15CD9C2BDC53097" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYRequirementWithCalcFigsType" Multiplicity="1" Role="FromRole_assoc_A969AFFB71FC24E4A15CD9C2BDC53097"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYSalesOrderConfirmationType" Multiplicity="*" Role="ToRole_assoc_A969AFFB71FC24E4A15CD9C2BDC53097"/>
+            </Association>
+            <Association Name="assoc_DE42CE629B2218523CC68F317126C7FE" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYRequirementWithCalcFigsType" Multiplicity="1" Role="FromRole_assoc_DE42CE629B2218523CC68F317126C7FE"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYSalesOrderConfirmationType" Multiplicity="1" Role="ToRole_assoc_DE42CE629B2218523CC68F317126C7FE"/>
+            </Association>
+            <Association Name="assoc_20DC5F9401B091157DE1B7F20D0BC90A" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYRequirementWithCalcFigsType" Multiplicity="1" Role="FromRole_assoc_20DC5F9401B091157DE1B7F20D0BC90A">
+                    <OnDelete Action="Cascade"/>
+                </End>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYStockTransptRequirementType" Multiplicity="0..1" Role="ToRole_assoc_20DC5F9401B091157DE1B7F20D0BC90A"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_assoc_20DC5F9401B091157DE1B7F20D0BC90A">
+                        <PropertyRef Name="RFDYRequirementUUID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_assoc_20DC5F9401B091157DE1B7F20D0BC90A">
+                        <PropertyRef Name="RFDYRequirementUUID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_CA6DAF144CC340A9BD4FEF2B69D9BDCE" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYStockTransportOrderItemType" Multiplicity="1" Role="FromRole_assoc_CA6DAF144CC340A9BD4FEF2B69D9BDCE"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYStockTransportOrderType" Multiplicity="1" Role="ToRole_assoc_CA6DAF144CC340A9BD4FEF2B69D9BDCE"/>
+            </Association>
+            <Association Name="assoc_1F9E70DC646CEC80649F71C3989F51C3" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYSalesOrderRequirementType" Multiplicity="1" Role="FromRole_assoc_1F9E70DC646CEC80649F71C3989F51C3"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYOutboundDeliveryItemType" Multiplicity="*" Role="ToRole_assoc_1F9E70DC646CEC80649F71C3989F51C3"/>
+            </Association>
+            <Association Name="assoc_E3815B4C4EC5DF9324087778F9729054" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYSalesOrderRequirementType" Multiplicity="1" Role="FromRole_assoc_E3815B4C4EC5DF9324087778F9729054"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYChangedRequirementType" Multiplicity="*" Role="ToRole_assoc_E3815B4C4EC5DF9324087778F9729054"/>
+            </Association>
+            <Association Name="assoc_BE67CD73D2C9A7C89294DCBBC5E7CE1A" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYSalesOrderRequirementType" Multiplicity="1" Role="FromRole_assoc_BE67CD73D2C9A7C89294DCBBC5E7CE1A"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYMaterialWithTotalsType" Multiplicity="1" Role="ToRole_assoc_BE67CD73D2C9A7C89294DCBBC5E7CE1A"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_assoc_BE67CD73D2C9A7C89294DCBBC5E7CE1A">
+                        <PropertyRef Name="RFDYMaterialUUID"/>
+                    </Principal>
+                    <Dependent Role="FromRole_assoc_BE67CD73D2C9A7C89294DCBBC5E7CE1A">
+                        <PropertyRef Name="RFDYMaterialUUID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_42C3EC16183ABE0C1ADAEE29E65A8B13" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYSalesOrderRequirementType" Multiplicity="1" Role="FromRole_assoc_42C3EC16183ABE0C1ADAEE29E65A8B13"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYSalesOrderType" Multiplicity="1" Role="ToRole_assoc_42C3EC16183ABE0C1ADAEE29E65A8B13"/>
+            </Association>
+            <Association Name="assoc_6FD851401672E33787D394CC081A8B7A" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYSalesOrderRequirementType" Multiplicity="1" Role="FromRole_assoc_6FD851401672E33787D394CC081A8B7A"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYSalesOrderConfirmationType" Multiplicity="*" Role="ToRole_assoc_6FD851401672E33787D394CC081A8B7A"/>
+            </Association>
+            <Association Name="assoc_EA7266BCDBF193754AD8F4DEF2C86331" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYSalesOrderRequirementType" Multiplicity="1" Role="FromRole_assoc_EA7266BCDBF193754AD8F4DEF2C86331"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYSalesOrderConfirmationType" Multiplicity="*" Role="ToRole_assoc_EA7266BCDBF193754AD8F4DEF2C86331"/>
+            </Association>
+            <Association Name="assoc_26559AC42C51BF58759E06146401162D" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYSalesOrderRequirementType" Multiplicity="1" Role="FromRole_assoc_26559AC42C51BF58759E06146401162D"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYSalesOrderConfirmationType" Multiplicity="1" Role="ToRole_assoc_26559AC42C51BF58759E06146401162D"/>
+            </Association>
+            <Association Name="assoc_8561616852A6F9D4D8A149D63D21D304" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYMaterialWithTotalsType" Multiplicity="1" Role="FromRole_assoc_8561616852A6F9D4D8A149D63D21D304">
+                    <OnDelete Action="Cascade"/>
+                </End>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYRequirementWithCalcFigsType" Multiplicity="*" Role="ToRole_assoc_8561616852A6F9D4D8A149D63D21D304"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_assoc_8561616852A6F9D4D8A149D63D21D304">
+                        <PropertyRef Name="RFDYMaterialUUID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_assoc_8561616852A6F9D4D8A149D63D21D304">
+                        <PropertyRef Name="RFDYMaterialUUID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_72A35D68EE579AF379829C165095F9B3" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYMaterialWithTotalsType" Multiplicity="1" Role="FromRole_assoc_72A35D68EE579AF379829C165095F9B3"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYSurplusBucketType" Multiplicity="*" Role="ToRole_assoc_72A35D68EE579AF379829C165095F9B3"/>
+            </Association>
+            <Association Name="assoc_F4EA57D81194E2A6883964A01FD08B0C" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYMaterialWithTotalsType" Multiplicity="1" Role="FromRole_assoc_F4EA57D81194E2A6883964A01FD08B0C"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYPrsnlWorklistWithTotQtsType" Multiplicity="1" Role="ToRole_assoc_F4EA57D81194E2A6883964A01FD08B0C"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_assoc_F4EA57D81194E2A6883964A01FD08B0C">
+                        <PropertyRef Name="RFDYWorklistUUID"/>
+                    </Principal>
+                    <Dependent Role="FromRole_assoc_F4EA57D81194E2A6883964A01FD08B0C">
+                        <PropertyRef Name="RFDYWorklistUUID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_6881AB1AB95277146C5183191CC46FC5" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYRqmtDpndcyGroupMemberType" Multiplicity="1" Role="FromRole_assoc_6881AB1AB95277146C5183191CC46FC5"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYRequirementWithCalcFigsType" Multiplicity="0..1" Role="ToRole_assoc_6881AB1AB95277146C5183191CC46FC5"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_assoc_6881AB1AB95277146C5183191CC46FC5">
+                        <PropertyRef Name="RFDYRequirementUUID"/>
+                    </Principal>
+                    <Dependent Role="FromRole_assoc_6881AB1AB95277146C5183191CC46FC5">
+                        <PropertyRef Name="RFDYRequirementUUID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_880E28DF3274D9A2C5F2651DCF08A6D2" sap:content-version="1">
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYRqmtDpndcyGroupMemberType" Multiplicity="1" Role="FromRole_assoc_880E28DF3274D9A2C5F2651DCF08A6D2"/>
+                <End Type="ATP_RELEASE_FOR_DELIVERY.C_RFDYRqmtDependencyGroupType" Multiplicity="1" Role="ToRole_assoc_880E28DF3274D9A2C5F2651DCF08A6D2"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_assoc_880E28DF3274D9A2C5F2651DCF08A6D2">
+                        <PropertyRef Name="RFDYRqmtDependencyGroupUUID"/>
+                    </Principal>
+                    <Dependent Role="FromRole_assoc_880E28DF3274D9A2C5F2651DCF08A6D2">
+                        <PropertyRef Name="RFDYRqmtDependencyGroupUUID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ATP_RELEASE_FOR_DELIVERY_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="C_RFDYChangedRequirement" EntityType="ATP_RELEASE_FOR_DELIVERY.C_RFDYChangedRequirementType" sap:creatable="false" sap:content-version="1"/>
+                <EntitySet Name="C_RFDYMaterialWithTotals" EntityType="ATP_RELEASE_FOR_DELIVERY.C_RFDYMaterialWithTotalsType" sap:content-version="1"/>
+                <EntitySet Name="C_RFDYOutboundDeliveryItem" EntityType="ATP_RELEASE_FOR_DELIVERY.C_RFDYOutboundDeliveryItemType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="C_RFDYPrsnlWorklistWithTotQts" EntityType="ATP_RELEASE_FOR_DELIVERY.C_RFDYPrsnlWorklistWithTotQtsType" sap:content-version="1"/>
+                <EntitySet Name="C_RFDYRequirementWithCalcFigs" EntityType="ATP_RELEASE_FOR_DELIVERY.C_RFDYRequirementWithCalcFigsType" sap:content-version="1"/>
+                <EntitySet Name="C_RFDYRqmtDependencyGroup" EntityType="ATP_RELEASE_FOR_DELIVERY.C_RFDYRqmtDependencyGroupType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="C_RFDYRqmtDpndcyGroupMember" EntityType="ATP_RELEASE_FOR_DELIVERY.C_RFDYRqmtDpndcyGroupMemberType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="C_RFDYSalesOrder" EntityType="ATP_RELEASE_FOR_DELIVERY.C_RFDYSalesOrderType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="C_RFDYSalesOrderConfirmation" EntityType="ATP_RELEASE_FOR_DELIVERY.C_RFDYSalesOrderConfirmationType" sap:content-version="1"/>
+                <EntitySet Name="C_RFDYSalesOrderItem" EntityType="ATP_RELEASE_FOR_DELIVERY.C_RFDYSalesOrderItemType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="C_RFDYSalesOrderRequirement" EntityType="ATP_RELEASE_FOR_DELIVERY.C_RFDYSalesOrderRequirementType" sap:content-version="1"/>
+                <EntitySet Name="C_RFDYStockTransportOrder" EntityType="ATP_RELEASE_FOR_DELIVERY.C_RFDYStockTransportOrderType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="C_RFDYStockTransportOrderItem" EntityType="ATP_RELEASE_FOR_DELIVERY.C_RFDYStockTransportOrderItemType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="C_RFDYStockTransptRequirement" EntityType="ATP_RELEASE_FOR_DELIVERY.C_RFDYStockTransptRequirementType" sap:content-version="1"/>
+                <EntitySet Name="C_RFDYSurplusBucket" EntityType="ATP_RELEASE_FOR_DELIVERY.C_RFDYSurplusBucketType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="RFDYRequirementRefresh" EntityType="ATP_RELEASE_FOR_DELIVERY.RFDYRequirementRefreshType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="RFDYWorkloadPreview" EntityType="ATP_RELEASE_FOR_DELIVERY.RFDYWorkloadPreviewType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="RFDYLockedRequirement" EntityType="ATP_RELEASE_FOR_DELIVERY.RFDYLockedRequirementType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="RFDYModifiedRequirement" EntityType="ATP_RELEASE_FOR_DELIVERY.RFDYModifiedRequirementType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="RFDYSalesOrderReqUpdateResult" EntityType="ATP_RELEASE_FOR_DELIVERY.RFDYRequirementUpdateResultType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <AssociationSet Name="to_RFDYModifiedRequirementSet" Association="ATP_RELEASE_FOR_DELIVERY.to_RFDYModifiedRequirement" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="RFDYSalesOrderReqUpdateResult" Role="FromRole_to_RFDYModifiedRequirement"/>
+                    <End EntitySet="RFDYModifiedRequirement" Role="ToRole_to_RFDYModifiedRequirement"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_1F9E70DC646CEC80649F71C3989F51C3" Association="ATP_RELEASE_FOR_DELIVERY.assoc_1F9E70DC646CEC80649F71C3989F51C3" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYSalesOrderRequirement" Role="FromRole_assoc_1F9E70DC646CEC80649F71C3989F51C3"/>
+                    <End EntitySet="C_RFDYOutboundDeliveryItem" Role="ToRole_assoc_1F9E70DC646CEC80649F71C3989F51C3"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_880E28DF3274D9A2C5F2651DCF08A6D2" Association="ATP_RELEASE_FOR_DELIVERY.assoc_880E28DF3274D9A2C5F2651DCF08A6D2" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYRqmtDpndcyGroupMember" Role="FromRole_assoc_880E28DF3274D9A2C5F2651DCF08A6D2"/>
+                    <End EntitySet="C_RFDYRqmtDependencyGroup" Role="ToRole_assoc_880E28DF3274D9A2C5F2651DCF08A6D2"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_2FC4E86D2EFD78AFC679ABD9DF8F899F" Association="ATP_RELEASE_FOR_DELIVERY.assoc_2FC4E86D2EFD78AFC679ABD9DF8F899F" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYStockTransptRequirement" Role="FromRole_assoc_2FC4E86D2EFD78AFC679ABD9DF8F899F"/>
+                    <End EntitySet="C_RFDYSalesOrderConfirmation" Role="ToRole_assoc_2FC4E86D2EFD78AFC679ABD9DF8F899F"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_0D7589499045B6E5E5D2E6107C9F3916" Association="ATP_RELEASE_FOR_DELIVERY.assoc_0D7589499045B6E5E5D2E6107C9F3916" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYStockTransportOrder" Role="FromRole_assoc_0D7589499045B6E5E5D2E6107C9F3916"/>
+                    <End EntitySet="C_RFDYStockTransportOrderItem" Role="ToRole_assoc_0D7589499045B6E5E5D2E6107C9F3916"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_0ECCD4535731DE30B6040CA4750AC4CF" Association="ATP_RELEASE_FOR_DELIVERY.assoc_0ECCD4535731DE30B6040CA4750AC4CF" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYRequirementWithCalcFigs" Role="FromRole_assoc_0ECCD4535731DE30B6040CA4750AC4CF"/>
+                    <End EntitySet="C_RFDYSalesOrderConfirmation" Role="ToRole_assoc_0ECCD4535731DE30B6040CA4750AC4CF"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_20DC5F9401B091157DE1B7F20D0BC90A" Association="ATP_RELEASE_FOR_DELIVERY.assoc_20DC5F9401B091157DE1B7F20D0BC90A" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYRequirementWithCalcFigs" Role="FromRole_assoc_20DC5F9401B091157DE1B7F20D0BC90A"/>
+                    <End EntitySet="C_RFDYStockTransptRequirement" Role="ToRole_assoc_20DC5F9401B091157DE1B7F20D0BC90A"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_29B063514DB6E2AB02D8FF835664F8D9" Association="ATP_RELEASE_FOR_DELIVERY.assoc_29B063514DB6E2AB02D8FF835664F8D9" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYRqmtDependencyGroup" Role="FromRole_assoc_29B063514DB6E2AB02D8FF835664F8D9"/>
+                    <End EntitySet="C_RFDYRqmtDpndcyGroupMember" Role="ToRole_assoc_29B063514DB6E2AB02D8FF835664F8D9"/>
+                </AssociationSet>
+                <AssociationSet Name="to_RFDYModifiedRequirementFromRefresh_As" Association="ATP_RELEASE_FOR_DELIVERY.to_RFDYModifiedRequirementFromRefresh" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="RFDYRequirementRefresh" Role="FromRole_to_RFDYModifiedRequirementFromRefresh"/>
+                    <End EntitySet="RFDYModifiedRequirement" Role="ToRole_to_RFDYModifiedRequirementFromRefresh"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_052F76CC5E2793DFD27B91EF29A2D3C8" Association="ATP_RELEASE_FOR_DELIVERY.assoc_052F76CC5E2793DFD27B91EF29A2D3C8" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYRequirementWithCalcFigs" Role="FromRole_assoc_052F76CC5E2793DFD27B91EF29A2D3C8"/>
+                    <End EntitySet="C_RFDYMaterialWithTotals" Role="ToRole_assoc_052F76CC5E2793DFD27B91EF29A2D3C8"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_04CDCFAE34001577E0C17125ECFFA712" Association="ATP_RELEASE_FOR_DELIVERY.assoc_04CDCFAE34001577E0C17125ECFFA712" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYStockTransptRequirement" Role="FromRole_assoc_04CDCFAE34001577E0C17125ECFFA712"/>
+                    <End EntitySet="C_RFDYSalesOrderConfirmation" Role="ToRole_assoc_04CDCFAE34001577E0C17125ECFFA712"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_5AAFD9175BB90F00B50698F946C76528" Association="ATP_RELEASE_FOR_DELIVERY.assoc_5AAFD9175BB90F00B50698F946C76528" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYSalesOrder" Role="FromRole_assoc_5AAFD9175BB90F00B50698F946C76528"/>
+                    <End EntitySet="C_RFDYSalesOrderItem" Role="ToRole_assoc_5AAFD9175BB90F00B50698F946C76528"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_EA7266BCDBF193754AD8F4DEF2C86331" Association="ATP_RELEASE_FOR_DELIVERY.assoc_EA7266BCDBF193754AD8F4DEF2C86331" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYSalesOrderRequirement" Role="FromRole_assoc_EA7266BCDBF193754AD8F4DEF2C86331"/>
+                    <End EntitySet="C_RFDYSalesOrderConfirmation" Role="ToRole_assoc_EA7266BCDBF193754AD8F4DEF2C86331"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_41CD2FF1DC7E8316A81F5807D7FDAA78" Association="ATP_RELEASE_FOR_DELIVERY.assoc_41CD2FF1DC7E8316A81F5807D7FDAA78" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYStockTransptRequirement" Role="FromRole_assoc_41CD2FF1DC7E8316A81F5807D7FDAA78"/>
+                    <End EntitySet="C_RFDYStockTransportOrder" Role="ToRole_assoc_41CD2FF1DC7E8316A81F5807D7FDAA78"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_6881AB1AB95277146C5183191CC46FC5" Association="ATP_RELEASE_FOR_DELIVERY.assoc_6881AB1AB95277146C5183191CC46FC5" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYRqmtDpndcyGroupMember" Role="FromRole_assoc_6881AB1AB95277146C5183191CC46FC5"/>
+                    <End EntitySet="C_RFDYRequirementWithCalcFigs" Role="ToRole_assoc_6881AB1AB95277146C5183191CC46FC5"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_4F2E41EF2010587B02A5E10864138365" Association="ATP_RELEASE_FOR_DELIVERY.assoc_4F2E41EF2010587B02A5E10864138365" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYStockTransptRequirement" Role="FromRole_assoc_4F2E41EF2010587B02A5E10864138365"/>
+                    <End EntitySet="C_RFDYMaterialWithTotals" Role="ToRole_assoc_4F2E41EF2010587B02A5E10864138365"/>
+                </AssociationSet>
+                <AssociationSet Name="to_RFDYLockedRequirementFromRefresh_Asso" Association="ATP_RELEASE_FOR_DELIVERY.to_RFDYLockedRequirementFromRefresh" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="RFDYRequirementRefresh" Role="FromRole_to_RFDYLockedRequirementFromRefresh"/>
+                    <End EntitySet="RFDYLockedRequirement" Role="ToRole_to_RFDYLockedRequirementFromRefresh"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_A682CA80BE3AFDD4513FF8225A7E1482" Association="ATP_RELEASE_FOR_DELIVERY.assoc_A682CA80BE3AFDD4513FF8225A7E1482" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYRequirementWithCalcFigs" Role="FromRole_assoc_A682CA80BE3AFDD4513FF8225A7E1482"/>
+                    <End EntitySet="C_RFDYRqmtDpndcyGroupMember" Role="ToRole_assoc_A682CA80BE3AFDD4513FF8225A7E1482"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_A969AFFB71FC24E4A15CD9C2BDC53097" Association="ATP_RELEASE_FOR_DELIVERY.assoc_A969AFFB71FC24E4A15CD9C2BDC53097" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYRequirementWithCalcFigs" Role="FromRole_assoc_A969AFFB71FC24E4A15CD9C2BDC53097"/>
+                    <End EntitySet="C_RFDYSalesOrderConfirmation" Role="ToRole_assoc_A969AFFB71FC24E4A15CD9C2BDC53097"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_CA6DAF144CC340A9BD4FEF2B69D9BDCE" Association="ATP_RELEASE_FOR_DELIVERY.assoc_CA6DAF144CC340A9BD4FEF2B69D9BDCE" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYStockTransportOrderItem" Role="FromRole_assoc_CA6DAF144CC340A9BD4FEF2B69D9BDCE"/>
+                    <End EntitySet="C_RFDYStockTransportOrder" Role="ToRole_assoc_CA6DAF144CC340A9BD4FEF2B69D9BDCE"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_26559AC42C51BF58759E06146401162D" Association="ATP_RELEASE_FOR_DELIVERY.assoc_26559AC42C51BF58759E06146401162D" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYSalesOrderRequirement" Role="FromRole_assoc_26559AC42C51BF58759E06146401162D"/>
+                    <End EntitySet="C_RFDYSalesOrderConfirmation" Role="ToRole_assoc_26559AC42C51BF58759E06146401162D"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_E3815B4C4EC5DF9324087778F9729054" Association="ATP_RELEASE_FOR_DELIVERY.assoc_E3815B4C4EC5DF9324087778F9729054" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYSalesOrderRequirement" Role="FromRole_assoc_E3815B4C4EC5DF9324087778F9729054"/>
+                    <End EntitySet="C_RFDYChangedRequirement" Role="ToRole_assoc_E3815B4C4EC5DF9324087778F9729054"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_E4D9F67E4B77F25694EE65534ACB9608" Association="ATP_RELEASE_FOR_DELIVERY.assoc_E4D9F67E4B77F25694EE65534ACB9608" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYPrsnlWorklistWithTotQts" Role="FromRole_assoc_E4D9F67E4B77F25694EE65534ACB9608"/>
+                    <End EntitySet="C_RFDYMaterialWithTotals" Role="ToRole_assoc_E4D9F67E4B77F25694EE65534ACB9608"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_F4EA57D81194E2A6883964A01FD08B0C" Association="ATP_RELEASE_FOR_DELIVERY.assoc_F4EA57D81194E2A6883964A01FD08B0C" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYMaterialWithTotals" Role="FromRole_assoc_F4EA57D81194E2A6883964A01FD08B0C"/>
+                    <End EntitySet="C_RFDYPrsnlWorklistWithTotQts" Role="ToRole_assoc_F4EA57D81194E2A6883964A01FD08B0C"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_72A35D68EE579AF379829C165095F9B3" Association="ATP_RELEASE_FOR_DELIVERY.assoc_72A35D68EE579AF379829C165095F9B3" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYMaterialWithTotals" Role="FromRole_assoc_72A35D68EE579AF379829C165095F9B3"/>
+                    <End EntitySet="C_RFDYSurplusBucket" Role="ToRole_assoc_72A35D68EE579AF379829C165095F9B3"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_BE67CD73D2C9A7C89294DCBBC5E7CE1A" Association="ATP_RELEASE_FOR_DELIVERY.assoc_BE67CD73D2C9A7C89294DCBBC5E7CE1A" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYSalesOrderRequirement" Role="FromRole_assoc_BE67CD73D2C9A7C89294DCBBC5E7CE1A"/>
+                    <End EntitySet="C_RFDYMaterialWithTotals" Role="ToRole_assoc_BE67CD73D2C9A7C89294DCBBC5E7CE1A"/>
+                </AssociationSet>
+                <AssociationSet Name="to_RFDYLockedRequirementSet" Association="ATP_RELEASE_FOR_DELIVERY.to_RFDYLockedRequirement" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="RFDYSalesOrderReqUpdateResult" Role="FromRole_to_RFDYLockedRequirement"/>
+                    <End EntitySet="RFDYLockedRequirement" Role="ToRole_to_RFDYLockedRequirement"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_E47C275B222CDDEC61245C9C68FBAD7F" Association="ATP_RELEASE_FOR_DELIVERY.assoc_E47C275B222CDDEC61245C9C68FBAD7F" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYStockTransptRequirement" Role="FromRole_assoc_E47C275B222CDDEC61245C9C68FBAD7F"/>
+                    <End EntitySet="C_RFDYOutboundDeliveryItem" Role="ToRole_assoc_E47C275B222CDDEC61245C9C68FBAD7F"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_6FD851401672E33787D394CC081A8B7A" Association="ATP_RELEASE_FOR_DELIVERY.assoc_6FD851401672E33787D394CC081A8B7A" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYSalesOrderRequirement" Role="FromRole_assoc_6FD851401672E33787D394CC081A8B7A"/>
+                    <End EntitySet="C_RFDYSalesOrderConfirmation" Role="ToRole_assoc_6FD851401672E33787D394CC081A8B7A"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_DE42CE629B2218523CC68F317126C7FE" Association="ATP_RELEASE_FOR_DELIVERY.assoc_DE42CE629B2218523CC68F317126C7FE" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYRequirementWithCalcFigs" Role="FromRole_assoc_DE42CE629B2218523CC68F317126C7FE"/>
+                    <End EntitySet="C_RFDYSalesOrderConfirmation" Role="ToRole_assoc_DE42CE629B2218523CC68F317126C7FE"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_6D6D4A815BB6B14893D90A50FF6A88DA" Association="ATP_RELEASE_FOR_DELIVERY.assoc_6D6D4A815BB6B14893D90A50FF6A88DA" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYRequirementWithCalcFigs" Role="FromRole_assoc_6D6D4A815BB6B14893D90A50FF6A88DA"/>
+                    <End EntitySet="C_RFDYSalesOrderRequirement" Role="ToRole_assoc_6D6D4A815BB6B14893D90A50FF6A88DA"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_4CAB0F6628967BECE0531E54099DF5BC" Association="ATP_RELEASE_FOR_DELIVERY.assoc_4CAB0F6628967BECE0531E54099DF5BC" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYRequirementWithCalcFigs" Role="FromRole_assoc_4CAB0F6628967BECE0531E54099DF5BC"/>
+                    <End EntitySet="C_RFDYChangedRequirement" Role="ToRole_assoc_4CAB0F6628967BECE0531E54099DF5BC"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_4F8E71265700F5645D8183E46C604C57" Association="ATP_RELEASE_FOR_DELIVERY.assoc_4F8E71265700F5645D8183E46C604C57" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYStockTransptRequirement" Role="FromRole_assoc_4F8E71265700F5645D8183E46C604C57"/>
+                    <End EntitySet="C_RFDYChangedRequirement" Role="ToRole_assoc_4F8E71265700F5645D8183E46C604C57"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_45A62F440B82DF8CD8FBCBD5DE79B673" Association="ATP_RELEASE_FOR_DELIVERY.assoc_45A62F440B82DF8CD8FBCBD5DE79B673" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYRequirementWithCalcFigs" Role="FromRole_assoc_45A62F440B82DF8CD8FBCBD5DE79B673"/>
+                    <End EntitySet="C_RFDYOutboundDeliveryItem" Role="ToRole_assoc_45A62F440B82DF8CD8FBCBD5DE79B673"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_07C23D82F9E2F878C9B5A2D4BBA7CCEB" Association="ATP_RELEASE_FOR_DELIVERY.assoc_07C23D82F9E2F878C9B5A2D4BBA7CCEB" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYChangedRequirement" Role="FromRole_assoc_07C23D82F9E2F878C9B5A2D4BBA7CCEB"/>
+                    <End EntitySet="C_RFDYRequirementWithCalcFigs" Role="ToRole_assoc_07C23D82F9E2F878C9B5A2D4BBA7CCEB"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_42C3EC16183ABE0C1ADAEE29E65A8B13" Association="ATP_RELEASE_FOR_DELIVERY.assoc_42C3EC16183ABE0C1ADAEE29E65A8B13" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYSalesOrderRequirement" Role="FromRole_assoc_42C3EC16183ABE0C1ADAEE29E65A8B13"/>
+                    <End EntitySet="C_RFDYSalesOrder" Role="ToRole_assoc_42C3EC16183ABE0C1ADAEE29E65A8B13"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_4AA06724B7A6C1E6CFE0D6334D275548" Association="ATP_RELEASE_FOR_DELIVERY.assoc_4AA06724B7A6C1E6CFE0D6334D275548" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYStockTransptRequirement" Role="FromRole_assoc_4AA06724B7A6C1E6CFE0D6334D275548"/>
+                    <End EntitySet="C_RFDYSalesOrderConfirmation" Role="ToRole_assoc_4AA06724B7A6C1E6CFE0D6334D275548"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_8561616852A6F9D4D8A149D63D21D304" Association="ATP_RELEASE_FOR_DELIVERY.assoc_8561616852A6F9D4D8A149D63D21D304" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="C_RFDYMaterialWithTotals" Role="FromRole_assoc_8561616852A6F9D4D8A149D63D21D304"/>
+                    <End EntitySet="C_RFDYRequirementWithCalcFigs" Role="ToRole_assoc_8561616852A6F9D4D8A149D63D21D304"/>
+                </AssociationSet>
+                <FunctionImport Name="C_RFDYMaterialWithTotalsRefresh_FRSTYL" ReturnType="Collection(ATP_RELEASE_FOR_DELIVERY.RFDYRequirementRefreshType)" EntitySet="RFDYRequirementRefresh" m:HttpMethod="GET">
+                    <Parameter Name="RFDYMaterialUUID" Type="Edm.Guid" Mode="In"/>
+                </FunctionImport>
+                <FunctionImport Name="C_RFDYMaterialWithTotalsRefresh" ReturnType="Collection(ATP_RELEASE_FOR_DELIVERY.DummyFunctionImportResult)" m:HttpMethod="GET" sap:action-for="ATP_RELEASE_FOR_DELIVERY.C_RFDYMaterialWithTotalsType" sap:applicable-path="Refresh_ac">
+                    <Parameter Name="RFDYMaterialUUID" Type="Edm.Guid" Mode="In"/>
+                </FunctionImport>
+                <FunctionImport Name="A00970838CC166CC3EB4Release_for_delivery" ReturnType="ATP_RELEASE_FOR_DELIVERY.C_RFDYMaterialWithTotalsType" EntitySet="C_RFDYMaterialWithTotals" m:HttpMethod="POST" sap:action-for="ATP_RELEASE_FOR_DELIVERY.C_RFDYMaterialWithTotalsType" sap:applicable-path="Release_for_delivery_ac">
+                    <Parameter Name="RFDYMaterialUUID" Type="Edm.Guid" Mode="In"/>
+                </FunctionImport>
+                <FunctionImport Name="C_RFDYMaterialWithTotalsUpdate_documents" ReturnType="ATP_RELEASE_FOR_DELIVERY.C_RFDYMaterialWithTotalsType" EntitySet="C_RFDYMaterialWithTotals" m:HttpMethod="POST" sap:action-for="ATP_RELEASE_FOR_DELIVERY.C_RFDYMaterialWithTotalsType" sap:applicable-path="Update_documents_ac">
+                    <Parameter Name="RFDYMaterialUUID" Type="Edm.Guid" Mode="In"/>
+                </FunctionImport>
+                <FunctionImport Name="ACC37AFC93BE341A9Create_current_workload" ReturnType="ATP_RELEASE_FOR_DELIVERY.C_RFDYPrsnlWorklistWithTotQtsType" EntitySet="C_RFDYPrsnlWorklistWithTotQts" m:HttpMethod="POST"/>
+                <FunctionImport Name="ACC37AFC93BE34Determine_current_workload" ReturnType="Collection(ATP_RELEASE_FOR_DELIVERY.C_RFDYPrsnlWorklistWithTotQtsType)" EntitySet="C_RFDYPrsnlWorklistWithTotQts" m:HttpMethod="GET"/>
+                <FunctionImport Name="ACC37AFC93BEGet_current_workload_preview" ReturnType="Collection(ATP_RELEASE_FOR_DELIVERY.TblAtpR4dWorkloadPreview)" m:HttpMethod="POST">
+                    <Parameter Name="ResponsibilityUUID" Type="Edm.Guid" Mode="In"/>
+                </FunctionImport>
+                <FunctionImport Name="C_RFDYPrsnlWorklistWithTotQtsPick" ReturnType="ATP_RELEASE_FOR_DELIVERY.C_RFDYPrsnlWorklistWithTotQtsType" EntitySet="C_RFDYPrsnlWorklistWithTotQts" m:HttpMethod="POST" sap:action-for="ATP_RELEASE_FOR_DELIVERY.C_RFDYPrsnlWorklistWithTotQtsType" sap:applicable-path="Pick_ac">
+                    <Parameter Name="RFDYWorklistUUID" Type="Edm.Guid" Mode="In"/>
+                </FunctionImport>
+                <FunctionImport Name="C_RFDYPrsnlWorklistWithTotQtsRefresh" ReturnType="ATP_RELEASE_FOR_DELIVERY.DummyFunctionImportResult" m:HttpMethod="POST" sap:action-for="ATP_RELEASE_FOR_DELIVERY.C_RFDYPrsnlWorklistWithTotQtsType" sap:applicable-path="Refresh_ac">
+                    <Parameter Name="RFDYWorklistUUID" Type="Edm.Guid" Mode="In"/>
+                </FunctionImport>
+                <FunctionImport Name="ACC37AFC93BE341A93Reset_current_workload" ReturnType="ATP_RELEASE_FOR_DELIVERY.C_RFDYPrsnlWorklistWithTotQtsType" EntitySet="C_RFDYPrsnlWorklistWithTotQts" m:HttpMethod="POST"/>
+            </EntityContainer>
+            <Annotations Target="ATP_RELEASE_FOR_DELIVERY.C_RFDYChangedRequirementType/RFDYRequirementUUID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="RFDY Requirement With Figures Calculated On-the-Fly"/>
+                        <PropertyValue Property="CollectionPath" String="C_RFDYRequirementWithCalcFigs"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="RFDYRequirementUUID"/>
+                                    <PropertyValue Property="ValueListProperty" String="RFDYRequirementUUID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PostponementCategory_Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ATP_RELEASE_FOR_DELIVERY.C_RFDYMaterialWithTotalsType/RFDYWorklistUUID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Release For Delivery Personal Worklist With Total Quantities"/>
+                        <PropertyValue Property="CollectionPath" String="C_RFDYPrsnlWorklistWithTotQts"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="RFDYWorklistUUID"/>
+                                    <PropertyValue Property="ValueListProperty" String="RFDYWorklistUUID"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ATP_RELEASE_FOR_DELIVERY.C_RFDYRequirementWithCalcFigsType/RFDYMaterialUUID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Release for Delivery Material with totals"/>
+                        <PropertyValue Property="CollectionPath" String="C_RFDYMaterialWithTotals"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="RFDYMaterialUUID"/>
+                                    <PropertyValue Property="ValueListProperty" String="RFDYMaterialUUID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Material_Text"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SupplyingPlant_Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ATP_RELEASE_FOR_DELIVERY.C_RFDYRqmtDpndcyGroupMemberType/RFDYRqmtDependencyGroupUUID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Release for Delivery Dependency Group"/>
+                        <PropertyValue Property="CollectionPath" String="C_RFDYRqmtDependencyGroup"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="RFDYRqmtDependencyGroupUUID"/>
+                                    <PropertyValue Property="ValueListProperty" String="RFDYRqmtDependencyGroupUUID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ATPRqmtDependencyGroupType_Text"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ATPRqmtDpndcySourceCategory_Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ATP_RELEASE_FOR_DELIVERY.C_RFDYRqmtDpndcyGroupMemberType/RFDYRequirementUUID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="RFDY Requirement With Figures Calculated On-the-Fly"/>
+                        <PropertyValue Property="CollectionPath" String="C_RFDYRequirementWithCalcFigs"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="RFDYRequirementUUID"/>
+                                    <PropertyValue Property="ValueListProperty" String="RFDYRequirementUUID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PostponementCategory_Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ATP_RELEASE_FOR_DELIVERY.C_RFDYSalesOrderRequirementType/RFDYMaterialUUID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Release for Delivery Material with totals"/>
+                        <PropertyValue Property="CollectionPath" String="C_RFDYMaterialWithTotals"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="RFDYMaterialUUID"/>
+                                    <PropertyValue Property="ValueListProperty" String="RFDYMaterialUUID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Material_Text"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SupplyingPlant_Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ATP_RELEASE_FOR_DELIVERY.C_RFDYStockTransptRequirementType/RFDYMaterialUUID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Release for Delivery Material with totals"/>
+                        <PropertyValue Property="CollectionPath" String="C_RFDYMaterialWithTotals"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="RFDYMaterialUUID"/>
+                                    <PropertyValue Property="ValueListProperty" String="RFDYMaterialUUID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Material_Text"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SupplyingPlant_Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ATP_RELEASE_FOR_DELIVERY.ATP_RELEASE_FOR_DELIVERY_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="None"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ATP_RELEASE_FOR_DELIVERY.C_RFDYPrsnlWorklistWithTotQtsType/ResponsibilityName" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="ATP_RELEASE_FOR_DELIVERY.ATP_RELEASE_FOR_DELIVERY_Entities/C_RFDYMaterialWithTotals" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>Refresh_ac</PropertyPath>
+                                <PropertyPath>Release_for_delivery_ac</PropertyPath>
+                                <PropertyPath>Update_documents_ac</PropertyPath>
+                                <PropertyPath>ConfirmationDeficitImpact</PropertyPath>
+                                <PropertyPath>ConfDeficitImpactIsCritical</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>Refresh_ac</PropertyPath>
+                                <PropertyPath>Release_for_delivery_ac</PropertyPath>
+                                <PropertyPath>Update_documents_ac</PropertyPath>
+                                <PropertyPath>ConfirmationDeficitImpact</PropertyPath>
+                                <PropertyPath>ConfDeficitImpactIsCritical</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ATP_RELEASE_FOR_DELIVERY.ATP_RELEASE_FOR_DELIVERY_Entities/C_RFDYPrsnlWorklistWithTotQts" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>Pick_ac</PropertyPath>
+                                <PropertyPath>Refresh_ac</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>Pick_ac</PropertyPath>
+                                <PropertyPath>Refresh_ac</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ATP_RELEASE_FOR_DELIVERY.ATP_RELEASE_FOR_DELIVERY_Entities/C_RFDYRequirementWithCalcFigs" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>IsPostponed_fc</PropertyPath>
+                                <PropertyPath>IsProtected_fc</PropertyPath>
+                                <PropertyPath>PostponementCategory_fc</PropertyPath>
+                                <PropertyPath>ReqdAvailyTmznUTCOffsetInSecs</PropertyPath>
+                                <PropertyPath>ReqdLoadgTmznUTCOffsetInSecs</PropertyPath>
+                                <PropertyPath>ReqdGdsIssTmznUTCOffsetInSecs</PropertyPath>
+                                <PropertyPath>ReqdDelivTmznUTCOffsetInSecs</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>IsPostponed_fc</PropertyPath>
+                                <PropertyPath>IsProtected_fc</PropertyPath>
+                                <PropertyPath>PostponementCategory_fc</PropertyPath>
+                                <PropertyPath>ReqdAvailyTmznUTCOffsetInSecs</PropertyPath>
+                                <PropertyPath>ReqdLoadgTmznUTCOffsetInSecs</PropertyPath>
+                                <PropertyPath>ReqdGdsIssTmznUTCOffsetInSecs</PropertyPath>
+                                <PropertyPath>ReqdDelivTmznUTCOffsetInSecs</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ATP_RELEASE_FOR_DELIVERY.ATP_RELEASE_FOR_DELIVERY_Entities/C_RFDYSalesOrderConfirmation" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>ConfirmedQuantityInBaseUnit_fc</PropertyPath>
+                                <PropertyPath>ConfdAvailyTmznUTCOffsetInSecs</PropertyPath>
+                                <PropertyPath>ConfdLoadgTmznUTCOffsetInSecs</PropertyPath>
+                                <PropertyPath>ConfdGdsIssTmznUTCOffsetInSecs</PropertyPath>
+                                <PropertyPath>ConfdDelivTmznUTCOffsetInSecs</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>ConfirmedQuantityInBaseUnit_fc</PropertyPath>
+                                <PropertyPath>ConfdAvailyTmznUTCOffsetInSecs</PropertyPath>
+                                <PropertyPath>ConfdLoadgTmznUTCOffsetInSecs</PropertyPath>
+                                <PropertyPath>ConfdGdsIssTmznUTCOffsetInSecs</PropertyPath>
+                                <PropertyPath>ConfdDelivTmznUTCOffsetInSecs</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ATP_RELEASE_FOR_DELIVERY.ATP_RELEASE_FOR_DELIVERY_Entities/C_RFDYSalesOrderRequirement" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>IsPostponed_fc</PropertyPath>
+                                <PropertyPath>IsProtected_fc</PropertyPath>
+                                <PropertyPath>PostponementCategory_fc</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>IsPostponed_fc</PropertyPath>
+                                <PropertyPath>IsProtected_fc</PropertyPath>
+                                <PropertyPath>PostponementCategory_fc</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="http://npsap01.namdhariseeds.com:8003/sap/opu/odata/sap/ATP_RELEASE_FOR_DELIVERY/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://npsap01.namdhariseeds.com:8003/sap/opu/odata/sap/ATP_RELEASE_FOR_DELIVERY/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

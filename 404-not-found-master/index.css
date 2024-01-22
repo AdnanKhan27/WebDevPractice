@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&family=Montserrat:wght@400;700&family=Space+Mono:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inconsolata", monospace;
+  /* font-family: "Montserrat", sans-serif; */
+  /* font-family: "Space Mono", monospace; */
+  /* overflow: hidden; */
+}
+
+.title {
+  font-family: "Inconsolata";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 25px;
+  letter-spacing: -0.08em;
+  text-transform: uppercase;
+  color: #333333;
+  margin: 20px 24px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 20px 24px;
+}
+
+.container__image img {
+  width: 40rem;
+  padding: 1.5rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 586px;
+}
+
+.content p {
+  font-family: "Space Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: -0.035em;
+  /* Gray 2 */
+  color: #4f4f4f;
+}
+
+.content h1 {
+  font-family: "Space Mono";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 71px;
+  letter-spacing: -0.035em;
+}
+
+.content button {
+  width: fit-content;
+  /* Gray 1 */
+  background: #333333;
+  color: white;
+  font-family: "Space Mono";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 21px;
+  /* identical to box height */
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  padding: 24px 44px;
+}
+
+.creator-tag {
+  position: fixed;
+  width: 100%;
+  bottom: 1.5rem;
+  z-index: 100;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #bdbdbd;
+}
+
+@media (width > 375px) {
+  .container__image img{
+    width: 36em;
+  }
+  .content h1 {
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 95px;
+  }
+
+  .content p {
+    font-size: 24px;
+    line-height: 36px;
+    max-width: 380px;
+  }
+}

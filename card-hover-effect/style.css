@@ -35,7 +35,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    pointer-events: none;
+    /* pointer-events: none; */
     transition: 0.5s;
   }
 
@@ -50,11 +50,11 @@ body {
   }
 
   .info {
-    position:  absolute;
+    position: absolute;
     bottom: -50%;
     padding: 15px;
     opacity: 0;
-    transition: 0.5s bottom, 1.75s opacity;
+    transition: 0.5s bottom, 1.5s opacity;
 
     p {
       font-size: 14px;
@@ -62,18 +62,23 @@ body {
     }
 
     button {
-      background: #490CCC;
+      background: linear-gradient(to top, #22066057, #490ccc);
       border: none;
       padding: 8px 12px;
       font-weight: bold;
       border-radius: 8px;
       margin-top: 8px;
-
+      /* mix-blend-mode: color-dodge; */
+      cursor: pointer;
+      transition: 0.3s ease-in;
+    }
+    button:hover {
+      background: #490ccc;
     }
   }
 }
 
-.card:hover, 
+.card:hover,
 .card:hover img {
   transform: scale(1.1);
 }

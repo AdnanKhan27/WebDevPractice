@@ -68,7 +68,6 @@ body {
       font-weight: bold;
       border-radius: 8px;
       margin-top: 8px;
-      /* mix-blend-mode: color-dodge; */
       cursor: pointer;
       transition: 0.3s ease-in;
     }

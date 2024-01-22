@@ -62,7 +62,7 @@ body {
     }
 
     button {
-      background: linear-gradient(to top, #22066057, #490ccc);
+      background: linear-gradient(to top, rgba(34, 6, 96, 0.341), rgba(73, 12, 204,1));
       border: none;
       padding: 8px 12px;
       font-weight: bold;
